@@ -4,5 +4,35 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Kingdom.unity
+    guid: b4c5d1ad837560d408a85db24f196fa5
+  - enabled: 1
+    path: Assets/Scenes/Swamp.unity
+    guid: 7f38267448ae48f4aa089dc64919c5f7
+  - enabled: 1
+    path: Assets/Scenes/FarmFields.unity
+    guid: 8eb3d67fe2945f24883aae096c8ab186
+  - enabled: 1
+    path: Assets/Scenes/ForestCaves.unity
+    guid: 2a490b7fc730859428d080d0e9df0f97
+  - enabled: 1
+    path: Assets/Scenes/ForestRoad.unity
+    guid: d07ef2b4fae721d4193fe732f0411357
+  - enabled: 1
+    path: Assets/Scenes/RiverDeltas.unity
+    guid: 5ed8242e7366ca14393d40340a286f45
+  - enabled: 1
+    path: Assets/Scenes/Rock.unity
+    guid: 0d5eb2ecc26daa047b191d5d6b2f4f6c
+  - enabled: 1
+    path: Assets/Scenes/BigMountain.unity
+    guid: 736fef4c6ead5324c81f8eb62a301b05
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 208289febf6bc8144bcb1a35c2f9dfcd
   m_configObjects: {}
