@@ -31,7 +31,7 @@ public class TestProgress : MonoBehaviour
     private LevelManager levelManager;
     private Save save;
 
-    private bool initialized = false;
+    private static bool initialized = false;
 
     void Awake()
     {
@@ -43,16 +43,19 @@ public class TestProgress : MonoBehaviour
         levelManager = gameObject.GetComponent<LevelManager>();
         save = gameObject.GetComponent<Save>();
 
-        Debug.Log(save);
-
         if (useProgressParam)
         {
-            save.SaveProgress(progress);
+            LevelManager.Progress currentProgress = levelManager.ValidProgress(progress);
+            save.SaveProgress(currentProgress);
         }
         else
         {
-            LevelManager.Progress currentProgress = levelManager.CurrentProgress();
-            save.SaveProgress(currentProgress);
+            Debug.Log("Using the current scene where user is starting");
+            if (!save.IsSaved())
+            {
+                LevelManager.Progress currentProgress = levelManager.CurrentProgress();
+                save.SaveProgress(currentProgress);
+            }
         }
     }
 

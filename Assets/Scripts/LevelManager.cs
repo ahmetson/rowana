@@ -52,21 +52,23 @@ public class LevelManager : MonoBehaviour
         scenes.Add(Progress.Ending, new ProgressData("Ending", Progress.Intro));
     }
 
+    public Progress ValidProgress(Progress progress)
+    {
+        if (progress == Progress.Intro || progress == Progress.Ending)
+        {
+            return scenes[progress].nextProgress;
+        }
+
+        return progress;
+    }
+
     public Progress CurrentProgress()
     {
         Scene scene = SceneManager.GetActiveScene();
 
         Progress progress =  scenes.FirstOrDefault(x => x.Value.scene == scene.name).Key;
 
-        if (progress == Progress.Intro)
-        {
-            Debug.Log("Its an intro");
-            return scenes[progress].nextProgress;
-        }
-
-        Debug.Log("Current scene is not intro");
-
-        return progress;
+        return ValidProgress(progress);
     }
 
     public Progress NextProgress(Progress currentProgress)

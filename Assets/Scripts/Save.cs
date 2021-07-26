@@ -13,9 +13,14 @@ public class Save : MonoBehaviour
         PlayerPrefs.SetString(CurrentProgressKey, progressName);
     }
 
+    public bool IsSaved()
+    {
+        return PlayerPrefs.HasKey(CurrentProgressKey);
+    }
+
     public LevelManager.Progress LoadProgress()
     {
-        if (!PlayerPrefs.HasKey(CurrentProgressKey))
+        if (!IsSaved())
         {
             Debug.Log("Has no key");
             return LevelManager.Progress.Intro;
