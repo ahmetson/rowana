@@ -42,6 +42,13 @@ public class Save : MonoBehaviour
         PlayerPrefs.SetFloat(CurrentCarpetKey + "y", carpetPosition.y);
     }
 
+    public void ClearCarpet()
+    {
+        PlayerPrefs.DeleteKey(CurrentCarpetKey + "x");
+        PlayerPrefs.DeleteKey(CurrentCarpetKey + "y");
+        PlayerPrefs.DeleteKey(CurrentCarpetKey + "z");
+    }
+
     public Vector3 LoadCarpet()
     {
         if (!PlayerPrefs.HasKey(CurrentCarpetKey + "x"))

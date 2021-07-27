@@ -5,8 +5,6 @@ using UnityEngine;
 public class Carpet : MonoBehaviour
 {
     Save save;
-
-
     private void OnEnable()
     {
         GameObject game = GameObject.FindGameObjectWithTag("GameController");

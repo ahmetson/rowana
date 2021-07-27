@@ -90,6 +90,8 @@ public class TestProgress : MonoBehaviour
         {
             yield return new WaitForSeconds(progressSpeed);
 
+            save.ClearCarpet();
+
             LevelManager.Progress currentProgress = save.LoadProgress();
             LevelManager.Progress nextProgress = levelManager.NextProgress(currentProgress);
 
