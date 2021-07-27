@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useProgressParam: 0
-  progress: 0
+  progress: 9
   autoProgress: 0
   progressSpeed: 1
 --- !u!1 &898604985

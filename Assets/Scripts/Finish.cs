@@ -23,7 +23,7 @@ public class Finish : MonoBehaviour
             save.ClearCarpet();
 
             // move to next progress
-            LevelManager.Progress currentProgress = levelManager.CurrentProgress();
+            LevelManager.Progress currentProgress = save.LoadProgress();
             LevelManager.Progress nextProgress = levelManager.NextProgress(currentProgress);
 
             Vector3 carpetPosition = Carpet.RespawnPosition();
