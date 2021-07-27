@@ -45,6 +45,7 @@ public class TestProgress : MonoBehaviour
 
         if (useProgressParam)
         {
+            save.ClearCarpet();
             LevelManager.Progress currentProgress = levelManager.ValidProgress(progress);
             save.SaveProgress(currentProgress);
         }
@@ -89,8 +90,6 @@ public class TestProgress : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(progressSpeed);
-
-            save.ClearCarpet();
 
             LevelManager.Progress currentProgress = save.LoadProgress();
             LevelManager.Progress nextProgress = levelManager.NextProgress(currentProgress);

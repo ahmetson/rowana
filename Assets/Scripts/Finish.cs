@@ -25,7 +25,10 @@ public class Finish : MonoBehaviour
             // move to next progress
             LevelManager.Progress currentProgress = levelManager.CurrentProgress();
             LevelManager.Progress nextProgress = levelManager.NextProgress(currentProgress);
-            
+
+            Vector3 carpetPosition = Carpet.RespawnPosition();
+            other.gameObject.GetComponent<TestMainCharacter>().SetToCarpet(carpetPosition);
+
             save.SaveProgress(nextProgress);
 
             levelManager.LoadScene(nextProgress);

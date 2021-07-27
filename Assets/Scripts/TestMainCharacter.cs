@@ -30,11 +30,9 @@ public class TestMainCharacter : MonoBehaviour
         }
 
         SetToCarpet(carpetPosition);
-
-        DontDestroyOnLoad(gameObject.transform.parent.gameObject);
     }
 
-    void SetToCarpet(Vector3 carpetPosition)
+    public void SetToCarpet(Vector3 carpetPosition)
     {
         Debug.Log("Set the starpoints");
         Vector3 position = new Vector3(carpetPosition.x, gameObject.transform.parent.position.y, carpetPosition.z);
