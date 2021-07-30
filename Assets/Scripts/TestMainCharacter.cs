@@ -35,7 +35,7 @@ public class TestMainCharacter : MonoBehaviour
     public void SetToCarpet(Vector3 carpetPosition)
     {
         Debug.Log("Set the starpoints");
-        Vector3 position = new Vector3(carpetPosition.x, gameObject.transform.parent.position.y, carpetPosition.z);
+        Vector3 position = new Vector3(carpetPosition.x, carpetPosition.y, carpetPosition.z);
 
         vThirdPersonController motion = gameObject.GetComponent<vThirdPersonController>();
         motion.useRootMotion = true;
