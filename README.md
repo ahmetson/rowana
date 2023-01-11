@@ -1,4 +1,5 @@
-# Daýanç Rowana
+# Rowana 
+> maintainer [yeqwer](https://github.com/yeqwer)
 A 3d action game on unity3d game engine. 
 
 
