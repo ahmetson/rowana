@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TriggerBlue : MonoBehaviour
 {
-    public SetVolume vol;
+    public SetMusicSounds set;
     public GameObject panelBlue;
 
     private void Awake()

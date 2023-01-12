@@ -44,7 +44,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: 5309173277435829195}
   m_UserColorIndex: 3
-  m_Mute: 1
+  m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!243 &-3442261878864702988
@@ -106,8 +106,6 @@ AudioMixerController:
     name: OrangeVolume
   - guid: 5528cd26ccfbaaf43810d0ff1e07819e
     name: YellowVolume
-  - guid: 144cd964dc680df40b4df9c728ae1b49
-    name: EchoYellow
   m_AudioMixerGroupViews:
   - guids:
     - 50880c96d0a3b40428a717e8e36a0d4e
@@ -170,7 +168,7 @@ AudioMixerSnapshotController:
   m_SnapshotID: b24c285e8acb51d4cbfdcc22b713a14d
   m_FloatValues:
     f39187e5bbf7ce24da814b6f5d81865a: -0.1668526
-    5528cd26ccfbaaf43810d0ff1e07819e: 0.23288241
+    5528cd26ccfbaaf43810d0ff1e07819e: -0.0024418721
     a6e60fb69853bc2488db91440bcf3c46: 0.23288241
     f754050865aef0d4183978ab4051a5e1: 0.23288241
     ad0b15d98a614104fa202176c331e333: 0.025578512
@@ -233,7 +231,7 @@ AudioMixerGroupController:
   m_UserColorIndex: 1
   m_Mute: 0
   m_Solo: 0
-  m_BypassEffects: 1
+  m_BypassEffects: 0
 --- !u!243 &3576007028537633938
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
