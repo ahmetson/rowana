@@ -7,13 +7,9 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     private InputMaster controls;
-
-    private float mouseSensitivity = 50f;
-
+    public float mouseSensitivity = 50f;
     private Vector2 mouseLook;
-
-    private float xRotation = 0f;
-
+    public float xRotation = 0f;
     public Transform playerBody;
 
     void Awake()

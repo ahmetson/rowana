@@ -6,13 +6,16 @@ using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
+
 public class SetMusicSounds : MonoBehaviour
 {
 
     public AudioMixer mixer;
     public Slider volumeSlider;
     public Button defoultButton;
+    public Button closeButton;
     public Toggle muteToggle;
+    
 
     //Yellow setup menu
     public void SetVolumeYellow(float sliderValue)
@@ -38,6 +41,10 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("YellowVolume", 0);
         volumeSlider.value = 0f;
         volumeSlider.enabled = true;
+    }
+
+    public void SetCloseMenuYellow()
+    {
         
     }
 
