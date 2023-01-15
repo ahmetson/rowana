@@ -172,7 +172,6 @@ GameObject:
   - component: {fileID: 52839203}
   - component: {fileID: 52839202}
   - component: {fileID: 52839201}
-  - component: {fileID: 52839204}
   m_Layer: 5
   m_Name: ButtonDefoult
   m_TagString: Untagged
@@ -245,10 +244,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 52839204}
+      - m_Target: {fileID: 682772917}
         m_TargetAssemblyTypeName: SetMusicSounds, Assembly-CSharp
         m_MethodName: SetDefoultYellow
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -295,22 +294,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52839198}
   m_CullTransparentMesh: 1
---- !u!114 &52839204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52839198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfbe7b5268b4a142a5a2937657302b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
-  volumeSlider: {fileID: 439596863}
-  defoultButton: {fileID: 52839201}
-  muteToggle: {fileID: 2000224315}
 --- !u!4 &97930013 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3300228723008982536, guid: dbece1db3ab474347b9acbab1ac6fd94, type: 3}
@@ -547,7 +530,6 @@ GameObject:
   m_Component:
   - component: {fileID: 439596861}
   - component: {fileID: 439596863}
-  - component: {fileID: 439596864}
   m_Layer: 5
   m_Name: YellowSliderVolume
   m_TagString: Untagged
@@ -629,10 +611,10 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 439596864}
+      - m_Target: {fileID: 682772917}
         m_TargetAssemblyTypeName: SetMusicSounds, Assembly-CSharp
         m_MethodName: SetVolumeYellow
-        m_Mode: 0
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -641,22 +623,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &439596864
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439596860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfbe7b5268b4a142a5a2937657302b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
-  volumeSlider: {fileID: 439596863}
-  defoultButton: {fileID: 52839201}
-  muteToggle: {fileID: 2000224315}
 --- !u!1 &508444560 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1333387101841149529, guid: a848eed4ef9c6c54fbd87ea7e7665aec, type: 3}
@@ -998,6 +964,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 682772916}
+  - component: {fileID: 682772917}
   m_Layer: 5
   m_Name: UiYellow
   m_TagString: Untagged
@@ -1022,6 +989,22 @@ Transform:
   m_Father: {fileID: 809862876}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &682772917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682772915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfbe7b5268b4a142a5a2937657302b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
+  volumeSlider: {fileID: 439596863}
+  defoultButton: {fileID: 52839201}
+  muteToggle: {fileID: 2000224315}
 --- !u!1 &740095211
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1548,7 @@ GameObject:
   - component: {fileID: 930930422}
   - component: {fileID: 930930421}
   - component: {fileID: 930930420}
+  - component: {fileID: 930930423}
   m_Layer: 5
   m_Name: ButtonClose
   m_TagString: Untagged
@@ -1636,7 +1620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 930930421}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 981414524}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &930930421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1675,6 +1671,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 930930418}
   m_CullTransparentMesh: 1
+--- !u!114 &930930423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 930930418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbfbe7b5268b4a142a5a2937657302b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
+  volumeSlider: {fileID: 439596863}
+  defoultButton: {fileID: 52839201}
+  muteToggle: {fileID: 2000224315}
 --- !u!1 &931129516
 GameObject:
   m_ObjectHideFlags: 0
@@ -4081,7 +4093,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e68eb5f8497b5fd4f89e6562640f96d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  set: {fileID: 0}
+  set: {fileID: 682772917}
   panelYellow: {fileID: 981414524}
   panelCanUI: {fileID: 1154649673}
   cameraMove: {fileID: 1319257347}
@@ -4172,7 +4184,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2000224314}
   - component: {fileID: 2000224315}
-  - component: {fileID: 2000224316}
   m_Layer: 5
   m_Name: MuteToggle
   m_TagString: Untagged
@@ -4249,7 +4260,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2000224316}
+      - m_Target: {fileID: 682772917}
         m_TargetAssemblyTypeName: SetMusicSounds, Assembly-CSharp
         m_MethodName: SetMuteYellow
         m_Mode: 1
@@ -4262,22 +4273,6 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
---- !u!114 &2000224316
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000224313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbfbe7b5268b4a142a5a2937657302b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
-  volumeSlider: {fileID: 439596863}
-  defoultButton: {fileID: 52839201}
-  muteToggle: {fileID: 2000224315}
 --- !u!1 &2002623048
 GameObject:
   m_ObjectHideFlags: 0

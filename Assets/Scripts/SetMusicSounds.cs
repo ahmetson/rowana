@@ -13,14 +13,13 @@ public class SetMusicSounds : MonoBehaviour
     public AudioMixer mixer;
     public Slider volumeSlider;
     public Button defoultButton;
-    public Button closeButton;
     public Toggle muteToggle;
     
 
     //Yellow setup menu
-    public void SetVolumeYellow(float sliderValue)
+    public void SetVolumeYellow()
     { 
-        mixer.SetFloat("YellowVolume", sliderValue);
+        mixer.SetFloat("YellowVolume", volumeSlider.value);
     }
 
     public void SetMuteYellow()
@@ -35,17 +34,12 @@ public class SetMusicSounds : MonoBehaviour
         }
     }
 
-    public void SetDefoultYellow(bool buttonValue)
+    public void SetDefoultYellow()
     {
         muteToggle.isOn = false;
         mixer.SetFloat("YellowVolume", 0);
         volumeSlider.value = 0f;
         volumeSlider.enabled = true;
-    }
-
-    public void SetCloseMenuYellow()
-    {
-        
     }
 
 

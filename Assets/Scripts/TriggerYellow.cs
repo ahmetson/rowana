@@ -13,7 +13,6 @@ public class TriggerYellow : MonoBehaviour
     public InputMaster controls;
     public bool canUI;
 
-
     private void Awake()
     {
         Debug.Log("Start");
@@ -48,15 +47,12 @@ public class TriggerYellow : MonoBehaviour
 
     public void Action()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) )
         {
-            do
-            {
-                panelCanUI.SetActive(false);
-                panelYellow.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                cameraMove.mouseSensitivity = 0f;
-            } while (set.closeButton);
-        }
+            panelCanUI.SetActive(false);
+            panelYellow.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            cameraMove.mouseSensitivity = 0f;
+        } 
     }
 }
