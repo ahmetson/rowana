@@ -47,12 +47,12 @@ public class TriggerYellow : MonoBehaviour
 
     public void Action()
     {
-        if (Input.GetKeyDown(KeyCode.E) )
+        if (Input.GetKeyDown(KeyCode.E))
         {
             panelCanUI.SetActive(false);
             panelYellow.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             cameraMove.mouseSensitivity = 0f;
-        } 
+        }
     }
 }

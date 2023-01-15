@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeMusicYellow : MonoBehaviour
+public class ChangeMusic : MonoBehaviour
 {
     public AudioSource audioSource;
 
 
-    public void ChangeMusic(AudioClip music)
+    public void ChangeMusics(AudioClip music)
     {
         audioSource.clip = music;
     }

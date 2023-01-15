@@ -11,50 +11,218 @@ public class SetMusicSounds : MonoBehaviour
 {
 
     public AudioMixer mixer;
-    public Slider volumeSlider;
+
+    public Slider volumeSliderYellow;
+    public Slider volumeSliderOrange;
+    public Slider volumeSliderGrean;
+    public Slider volumeSliderBlue;
     public Button defoultButton;
     public Toggle muteToggle;
+    public Toggle soloToggle;   
     
 
     //Yellow setup menu
+
     public void SetVolumeYellow()
     { 
-        mixer.SetFloat("YellowVolume", volumeSlider.value);
+        mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
     }
-
     public void SetMuteYellow()
     {
         if (muteToggle.isOn)
         {
             mixer.SetFloat("YellowVolume", -80f);
-            volumeSlider.enabled = false;
+            volumeSliderYellow.enabled = false;
         } else {
-            volumeSlider.enabled = true;
-            mixer.SetFloat("YellowVolume", volumeSlider.value);
+            volumeSliderYellow.enabled = true;
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+        }
+    }
+
+    public void SetSoloYellow()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderGrean.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderGrean.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderBlue.enabled = true;
         }
     }
 
     public void SetDefoultYellow()
     {
+        soloToggle.isOn = false;
         muteToggle.isOn = false;
         mixer.SetFloat("YellowVolume", 0);
-        volumeSlider.value = 0f;
-        volumeSlider.enabled = true;
+        volumeSliderYellow.value = 0f;
+        volumeSliderYellow.enabled = true;
     }
 
+    //Grean setup menu
 
+    public void SetVolumeGrean()
+    {
+        mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+    }
 
-    public void SetVolumeGrean(float sliderValue)
+    public void SetMuteGrean()
     {
-        mixer.SetFloat("GreanVolume", sliderValue);
+        if (muteToggle.isOn)
+        {
+            mixer.SetFloat("GreanVolume", -80f);
+            volumeSliderGrean.enabled = false;
+        }
+        else
+        {
+            volumeSliderGrean.enabled = true;
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+        }
     }
-    public void SetVolumeOrange(float sliderValue)
+
+    public void SetSoloGrean()
     {
-        mixer.SetFloat("OrangeVolume", sliderValue);
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("YellowVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderYellow.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderYellow.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderBlue.enabled = true;
+        }
     }
-    public void SetVolumeBlue(float sliderValue)
+
+    public void SetDefoultGrean()
     {
-        mixer.SetFloat("BlueVolume", sliderValue);
+        soloToggle.isOn = false;
+        muteToggle.isOn = false;
+        mixer.SetFloat("GreanVolume", 0);
+        volumeSliderGrean.value = 0f;
+        volumeSliderGrean.enabled = true;
+    }
+
+    //Orange setup menu
+
+    public void SetVolumeOrange()
+    {
+        mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+    }
+
+    public void SetMuteOrange()
+    {
+        if (muteToggle.isOn)
+        {
+            mixer.SetFloat("OrangeVolume", -80f);
+            volumeSliderOrange.enabled = false;
+        }
+        else
+        {
+            volumeSliderOrange.enabled = true;
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+        }
+    }
+
+    public void SetSoloOrange()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("YellowVolume", -80f);
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderYellow.enabled = false;
+            volumeSliderGrean.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderYellow.enabled = true;
+            volumeSliderGrean.enabled = true;
+            volumeSliderBlue.enabled = true;
+        }
+    }
+
+    public void SetDefoultOrange()
+    {
+        soloToggle.isOn = false;
+        muteToggle.isOn = false;
+        mixer.SetFloat("OrangeVolume", 0);
+        volumeSliderOrange.value = 0f;
+        volumeSliderOrange.enabled = true;
+    }
+
+    //Blue setup menu
+    public void SetVolumeBlue()
+    {
+        mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+    }
+
+    public void SetMuteBlue()
+    {
+        if (muteToggle.isOn)
+        {
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            volumeSliderBlue.enabled = true;
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+        }
+    }
+
+    public void SetSoloBlue()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("YellowVolume", -80f);
+            volumeSliderGrean.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderYellow.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            volumeSliderGrean.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderYellow.enabled = true;
+        }
+    }
+
+    public void SetDefoultBlue()
+    {
+        soloToggle.isOn = false;
+        muteToggle.isOn = false;
+        mixer.SetFloat("BlueVolume", 0);
+        volumeSliderBlue.value = 0f;
+        volumeSliderBlue.enabled = true;
     }
 
 }
