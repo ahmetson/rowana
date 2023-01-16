@@ -4,27 +4,26 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class TriggerYellow : MonoBehaviour
+public class TriggerBox : MonoBehaviour
 {
     public SetMusicSounds set;
-    public GameObject panelYellow;
-    public GameObject panelCanUI;
+    public GameObject panelMenuTool;
+    public GameObject panelPushE;
     public MouseLook cameraMove;
     public InputMaster controls;
-    public bool canUI;
+    private bool pushE;
 
     private void Awake()
     {
-        Debug.Log("Start");
-        panelYellow.SetActive(false);
-        panelCanUI.SetActive(false);
+        panelMenuTool.SetActive(false);
+        panelPushE.SetActive(false);
         controls = new InputMaster();
-        canUI = false;
+        pushE = false;
     }
 
     private void Update()
     {
-        if (canUI)
+        if (pushE)
         {
             Action();
         }
@@ -32,16 +31,15 @@ public class TriggerYellow : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Yellow");
-        canUI = true;
-        panelCanUI.SetActive(true);
+        pushE = true;
+        panelPushE.SetActive(true);
     }
     private void OnTriggerExit(Collider other)
     {
-        panelYellow.SetActive(false);
-        panelCanUI.SetActive(false);
+        panelMenuTool.SetActive(false);
+        panelPushE.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
-        canUI = false;
+        pushE = false;
         cameraMove.mouseSensitivity = 50f;
     }
 
@@ -49,8 +47,8 @@ public class TriggerYellow : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            panelCanUI.SetActive(false);
-            panelYellow.SetActive(true);
+            panelPushE.SetActive(false);
+            panelMenuTool.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             cameraMove.mouseSensitivity = 0f;
         }
