@@ -99,7 +99,7 @@ AudioMixerController:
   - guid: ad0b15d98a614104fa202176c331e333
     name: BlueVolume
   - guid: 61b07edba25379341a3f1dabeabdad46
-    name: ExamleVolume
+    name: ExampleVolume
   - guid: a6e60fb69853bc2488db91440bcf3c46
     name: GreanVolume
   - guid: f754050865aef0d4183978ab4051a5e1
@@ -181,7 +181,7 @@ AudioMixerSnapshotController:
     f754050865aef0d4183978ab4051a5e1: 0.23288241
     ad0b15d98a614104fa202176c331e333: 0.025578512
     30f2734ac7e0ff241b28e34b40c12673: 1695
-    61b07edba25379341a3f1dabeabdad46: -80
+    61b07edba25379341a3f1dabeabdad46: 0
     94a7a6fbcb4d9b943a9366eeb5d502ed: 11469
     bcdcb89d170eb8f4996f40aa00df0183: 5.37
   m_TransitionOverrides: {}
@@ -286,7 +286,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: -8299252562776186075}
   m_UserColorIndex: 5
-  m_Mute: 0
+  m_Mute: 1
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &8453762800822671954

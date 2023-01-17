@@ -11,6 +11,7 @@ public class SetMusicSounds : MonoBehaviour
 {
 
     public AudioMixer mixer;
+    public ChangeMusic changeMusic;
 
     public Slider volumeSliderYellow;
     public Slider volumeSliderOrange;
@@ -18,8 +19,12 @@ public class SetMusicSounds : MonoBehaviour
     public Slider volumeSliderBlue;
     public Button defoultButton;
     public Toggle muteToggle;
-    public Toggle soloToggle;   
-    
+    public Toggle soloToggle;
+
+    private void Start()
+    {
+        mixer.SetFloat("ExampleVolume", -80f);
+    }
 
     //Yellow setup menu
 
@@ -68,6 +73,7 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("YellowVolume", 0);
         volumeSliderYellow.value = 0f;
         volumeSliderYellow.enabled = true;
+        changeMusic.StopMusics();
     }
 
     //Grean setup menu
@@ -120,6 +126,7 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("GreanVolume", 0);
         volumeSliderGrean.value = 0f;
         volumeSliderGrean.enabled = true;
+        changeMusic.StopMusics();
     }
 
     //Orange setup menu
@@ -172,6 +179,7 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("OrangeVolume", 0);
         volumeSliderOrange.value = 0f;
         volumeSliderOrange.enabled = true;
+        changeMusic.StopMusics();
     }
 
     //Blue setup menu
@@ -223,6 +231,7 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("BlueVolume", 0);
         volumeSliderBlue.value = 0f;
         volumeSliderBlue.enabled = true;
+        changeMusic.StopMusics();
     }
 
 }
