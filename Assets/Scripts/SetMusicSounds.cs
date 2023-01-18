@@ -24,6 +24,7 @@ public class SetMusicSounds : MonoBehaviour
     private void Start()
     {
         mixer.SetFloat("ExampleVolume", -80f);
+        mixer.SetFloat("MethronomVolume", -80f);
     }
 
     //Yellow setup menu

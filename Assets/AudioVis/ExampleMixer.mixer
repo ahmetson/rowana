@@ -102,6 +102,8 @@ AudioMixerController:
     name: ExampleVolume
   - guid: a6e60fb69853bc2488db91440bcf3c46
     name: GreanVolume
+  - guid: 5158fff9a38d4fa4f86804bcf423ef93
+    name: MethronomVolume
   - guid: f754050865aef0d4183978ab4051a5e1
     name: OrangeVolume
   - guid: 5528cd26ccfbaaf43810d0ff1e07819e
@@ -168,22 +170,33 @@ AudioMixerSnapshotController:
   m_SnapshotID: b24c285e8acb51d4cbfdcc22b713a14d
   m_FloatValues:
     257795e013dc9f343b8a989e12f46b70: 5000
+    34e47581aeab96e42927615c622d1133: 1.155
     ffeb16628619718439b6e580bf96944f: 11280
+    0bd5d992a3f3d004ab9ae5322d3ba68a: 4.27
     447361c239d46904fb31206914d22030: 0.217
+    3fe2587311d0b874e847cf15ea81322c: 2048
     d40666b40bb316a488e5dfce0c46eb71: 13183
     7e94edf48bce1dc4d8bedf658b6e572f: 4.38
     f39187e5bbf7ce24da814b6f5d81865a: -0.1668526
+    8c32bde5ad3f115468bc8486a485d846: 2
+    783f09069e9a227408d13526584b0e38: 851
     5528cd26ccfbaaf43810d0ff1e07819e: -0.0024418721
     6fea3476f9bc80c4d8642f4fd1ef5a6b: 1000
     4962d5965dd049d4f9e50688e1ee50c7: 4.4
     a6e60fb69853bc2488db91440bcf3c46: 0.23288241
     eae634477528fb8479569471732dd614: 0.265
+    bde5f59703913ac49b63bee58dd27dfe: 7
     f754050865aef0d4183978ab4051a5e1: 0.23288241
     ad0b15d98a614104fa202176c331e333: 0.025578512
     30f2734ac7e0ff241b28e34b40c12673: 1695
+    9dd19b9bced71e24d98a4ae6a23d852f: 0.45
     61b07edba25379341a3f1dabeabdad46: 0
     94a7a6fbcb4d9b943a9366eeb5d502ed: 11469
+    88cb641d90c3d414993e10b68a4cc9d7: 6.68
+    6ce8161dc2c75794092d8133ee23efcb: 1
     bcdcb89d170eb8f4996f40aa00df0183: 5.37
+    f3ac2bdd6d0a6914dba2ef71c30d3b63: 10216
+    3c53562f50018394a90d103759d25c6d: 1574
   m_TransitionOverrides: {}
 --- !u!244 &371289637610166053
 AudioMixerEffectController:
@@ -286,7 +299,7 @@ AudioMixerGroupController:
   m_Effects:
   - {fileID: -8299252562776186075}
   m_UserColorIndex: 5
-  m_Mute: 1
+  m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
 --- !u!244 &8453762800822671954

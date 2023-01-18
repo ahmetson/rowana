@@ -6262,6 +6262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1259172203}
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
 --- !u!114 &590523139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16718,6 +16719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1896421090}
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
 --- !u!114 &1547567177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17084,6 +17086,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1465992155}
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
 --- !u!114 &1582091599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17342,6 +17345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1934787129}
+  mixer: {fileID: 24100000, guid: 04fb1e642a93a7c4ebc28a86332c1276, type: 2}
 --- !u!4 &1626733558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2969234724541276439, guid: cd5c6195b631d5c4e8150e056e5ed9a6, type: 3}
@@ -19695,6 +19699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1934787129}
+  mixer: {fileID: 0}
 --- !u!114 &1854364334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22872,6 +22877,10 @@ PrefabInstance:
     - target: {fileID: 4673078779884584081, guid: 81cc51ec6a2681e4498ed1ce9a6d0cd1, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4673078779884584081, guid: 81cc51ec6a2681e4498ed1ce9a6d0cd1, type: 3}
+      propertyPath: Priority
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 4673078779884584081, guid: 81cc51ec6a2681e4498ed1ce9a6d0cd1, type: 3}
       propertyPath: m_Volume
