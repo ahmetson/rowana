@@ -13349,6 +13349,10 @@ MonoBehaviour:
   audioClipG: {fileID: 8300000, guid: 31dc30f4bf74f074d97593b13408d8e6, type: 3}
   audioClipO: {fileID: 8300000, guid: 9246ff96cf4028c418ebe15efbd4344b, type: 3}
   audioClipB: {fileID: 8300000, guid: d5dd3db4f51df9a4db77539e364f6476, type: 3}
+  yellowSoloToggle: {fileID: 424875318}
+  blueSoloToggle: {fileID: 1358501636}
+  greanSoloToggle: {fileID: 20732872}
+  orangeSoloToggle: {fileID: 1633998342}
   panelVictory: {fileID: 54740892}
 --- !u!65 &1149918282
 BoxCollider:

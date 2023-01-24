@@ -20,6 +20,11 @@ public class TriggerCrystal : MonoBehaviour
     public AudioClip audioClipO;
     public AudioClip audioClipB;
 
+    public Toggle yellowSoloToggle;
+    public Toggle blueSoloToggle;
+    public Toggle greanSoloToggle;
+    public Toggle orangeSoloToggle;
+
     public GameObject panelVictory;
 
 
@@ -38,10 +43,56 @@ public class TriggerCrystal : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        mixer.SetFloat("ExampleVolume", -80f);
+
         mixer.SetFloat("YellowVolume", setMusic.volumeSliderYellow.value);
         mixer.SetFloat("GreanVolume", setMusic.volumeSliderGrean.value);
         mixer.SetFloat("OrangeVolume", setMusic.volumeSliderOrange.value);
         mixer.SetFloat("BlueVolume", setMusic.volumeSliderBlue.value);
-        mixer.SetFloat("ExampleVolume", -80f);
+
+        /* 
+         if (yellowSoloToggle.isOn)
+         {
+             mixer.SetFloat("YellowVolume", setMusic.volumeSliderYellow.value);
+         } else 
+         {
+             mixer.SetFloat("GreanVolume", -80f);
+             mixer.SetFloat("OrangeVolume", -80f);
+             mixer.SetFloat("BlueVolume", -80f);
+         }
+
+         if (greanSoloToggle.isOn)
+         {
+             mixer.SetFloat("GreanVolume", setMusic.volumeSliderGrean.value);
+         }
+         else
+         {
+             mixer.SetFloat("YellowVolume", -80f);
+             mixer.SetFloat("OrangeVolume", -80f);
+             mixer.SetFloat("BlueVolume", -80f);  
+         }
+
+         if (orangeSoloToggle.isOn)
+         {
+             mixer.SetFloat("OrangeVolume", setMusic.volumeSliderOrange.value);
+         }
+         else
+         {
+             mixer.SetFloat("YellowVolume", -80f);
+             mixer.SetFloat("BlueVolume", -80f);
+             mixer.SetFloat("GreanVolume", -80f);
+         }
+
+         if (blueSoloToggle.isOn)
+         {
+             mixer.SetFloat("BlueVolume", setMusic.volumeSliderBlue.value);
+         }
+         else
+         {
+             mixer.SetFloat("YellowVolume", -80f);
+             mixer.SetFloat("GreanVolume", -80f);
+             mixer.SetFloat("OrangeVolume", -80f);
+         }
+         */
     }
 }
