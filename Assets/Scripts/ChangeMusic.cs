@@ -9,12 +9,22 @@ public class ChangeMusic : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioMixer mixer;
+    public List<Button> allButton;
 
     public void ChangeMusics(AudioClip music)
     {
         audioSource.clip = music;
         mixer.SetFloat("MethronomVolume", -15f);
-        Invoke("TurnOff", 4f);
+        Invoke("TurnOff", 8f);
+        foreach (Button button in allButton)
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void StartMusic()
+    {
+
     }
 
     public void TurnOff()
