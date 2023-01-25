@@ -18,6 +18,7 @@ public class SetMusicSounds : MonoBehaviour
     public Slider volumeSliderGrean;
     public Slider volumeSliderBlue;
     public Button defoultButton;
+    public Toggle soloToggle;
 
     private void Start()
     {
@@ -32,7 +33,29 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
     }
 
-    public void SetDefoultYellow()
+    public void SetSoloYellow()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderGrean.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderGrean.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderBlue.enabled = true;
+        }
+    }
+
+public void SetDefoultYellow()
     {
         volumeSliderYellow.value = 0f;
         volumeSliderYellow.enabled = true;
@@ -46,6 +69,28 @@ public class SetMusicSounds : MonoBehaviour
     public void SetVolumeGrean()
     {
         mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+    }
+
+    public void SetSoloGrean()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("YellowVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderYellow.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderYellow.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderBlue.enabled = true;
+        }
     }
 
     public void SetDefoultGrean()
@@ -64,6 +109,29 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
     }
 
+
+    public void SetSoloOrange()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("YellowVolume", -80f);
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("BlueVolume", -80f);
+            volumeSliderYellow.enabled = false;
+            volumeSliderGrean.enabled = false;
+            volumeSliderBlue.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
+            volumeSliderYellow.enabled = true;
+            volumeSliderGrean.enabled = true;
+            volumeSliderBlue.enabled = true;
+        }
+    }
+
     public void SetDefoultOrange()
     {
         mixer.SetFloat("OrangeVolume", 0); 
@@ -79,7 +147,29 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("BlueVolume", volumeSliderBlue.value);
     }
 
-    public void SetDefoultBlue()
+    public void SetSoloBlue()
+    {
+        if (soloToggle.isOn)
+        {
+            mixer.SetFloat("GreanVolume", -80f);
+            mixer.SetFloat("OrangeVolume", -80f);
+            mixer.SetFloat("YellowVolume", -80f);
+            volumeSliderGrean.enabled = false;
+            volumeSliderOrange.enabled = false;
+            volumeSliderYellow.enabled = false;
+        }
+        else
+        {
+            mixer.SetFloat("GreanVolume", volumeSliderGrean.value);
+            mixer.SetFloat("OrangeVolume", volumeSliderOrange.value);
+            mixer.SetFloat("YellowVolume", volumeSliderYellow.value);
+            volumeSliderGrean.enabled = true;
+            volumeSliderOrange.enabled = true;
+            volumeSliderYellow.enabled = true;
+        }
+    }
+
+        public void SetDefoultBlue()
     {
         volumeSliderBlue.value = 0f;
         volumeSliderBlue.enabled = true;
