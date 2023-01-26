@@ -19,6 +19,7 @@ public class SetMusicSounds : MonoBehaviour
     public Slider volumeSliderBlue;
     public Button defoultButton;
     public Toggle soloToggle;
+    public Toggle testModeToggle;
 
     private void Start()
     {
@@ -26,6 +27,21 @@ public class SetMusicSounds : MonoBehaviour
         mixer.SetFloat("MethronomVolume", -80f);
     }
 
+    private void Update()
+    {
+        CheckToggle();
+    }
+
+    public void CheckToggle()
+    {
+        if (testModeToggle.isOn)
+        {
+            foreach (Button button in changeMusic.allButton)
+            {
+                button.interactable = true;
+            }
+        }
+    }
     //Yellow setup menu
 
     public void SetVolumeYellow()
@@ -55,13 +71,17 @@ public class SetMusicSounds : MonoBehaviour
         }
     }
 
-public void SetDefoultYellow()
+    public void SetDefoultYellow()
     {
         volumeSliderYellow.value = 0f;
         volumeSliderYellow.enabled = true;
         mixer.SetFloat("YellowVolume", 0);
-
         changeMusic.StopMusics();
+        testModeToggle.isOn = false;
+        foreach (Button button in changeMusic.allButton)
+        {
+            button.interactable = true;
+        }
     }
 
     //Grean setup menu
@@ -98,8 +118,12 @@ public void SetDefoultYellow()
         mixer.SetFloat("GreanVolume", 0);
         volumeSliderGrean.value = 0f;
         volumeSliderGrean.enabled = true;
-        
         changeMusic.StopMusics();
+        testModeToggle.isOn = false;
+        foreach (Button button in changeMusic.allButton)
+        {
+            button.interactable = true;
+        }
     }
 
     //Orange setup menu
@@ -137,8 +161,12 @@ public void SetDefoultYellow()
         mixer.SetFloat("OrangeVolume", 0); 
         volumeSliderOrange.value = 0f;
         volumeSliderOrange.enabled = true;
-        
         changeMusic.StopMusics();
+        testModeToggle.isOn = false;
+        foreach (Button button in changeMusic.allButton)
+        {
+            button.interactable = true;
+        }
     }
 
     //Blue setup menu
@@ -174,7 +202,11 @@ public void SetDefoultYellow()
         volumeSliderBlue.value = 0f;
         volumeSliderBlue.enabled = true;
         mixer.SetFloat("BlueVolume", 0);
-        
         changeMusic.StopMusics();
+        testModeToggle.isOn = false;
+        foreach (Button button in changeMusic.allButton)
+        {
+            button.interactable = true;
+        }
     }
 }
