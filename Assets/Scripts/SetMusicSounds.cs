@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -20,6 +21,7 @@ public class SetMusicSounds : MonoBehaviour
     public Button defoultButton;
     public Toggle soloToggle;
     public Toggle testModeToggle;
+    public Button changeSceneButton;
 
     private void Start()
     {
@@ -82,6 +84,10 @@ public class SetMusicSounds : MonoBehaviour
         {
             button.interactable = true;
         }
+    }
+    public void SetSetupYellow()
+    {
+        SceneManager.LoadScene("SetupYellow");
     }
 
     //Grean setup menu
