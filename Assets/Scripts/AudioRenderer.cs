@@ -11,20 +11,13 @@ public class AudioRenderer : MonoBehaviour
     private const short BITS_PER_SAMPLE = 16;
     private const int SAMPLE_RATE = 48000;
 
-    
     private int channels = 2;
 
-    
     public MemoryStream outputStream;
     public BinaryWriter outputWriter;
     
-
-    
-
-    
     public bool Rendering = false;
 
-    
     public enum Status
     {
         UNKNOWN,
