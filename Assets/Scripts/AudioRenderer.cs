@@ -55,8 +55,8 @@ public class AudioRenderer : MonoBehaviour
     
     public void Write(float[] audioData)
     {
-        
 
+        Debug.Log("Recording");
         
         for (int i = 0; i < audioData.Length; i++)
         {
