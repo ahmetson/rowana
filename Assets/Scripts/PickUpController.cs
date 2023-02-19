@@ -7,9 +7,9 @@ public class PickUpController : MonoBehaviour
 {
     [Header("Pickup Settings")]
     [SerializeField] Transform holdArea;
-    [SerializeField] Transform yellowPlatform;
-    [SerializeField] Transform bluePlatform;
-    [SerializeField] Transform greenPlatform;
+    [SerializeField] GameObject yellowPlatform;
+    [SerializeField] GameObject bluePlatform;
+    [SerializeField] GameObject greenPlatform;
 
     private GameObject heldObj;
     private Rigidbody heldObjRB;
@@ -22,7 +22,8 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0)) 
         {
             RaycastHit hit;
 
@@ -36,7 +37,7 @@ public class PickUpController : MonoBehaviour
             }
             else if (heldObj != null & (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)))
             {
-                Debug.Log("gg");
+                
                 DropObjectAtPlatform(heldObj.transform.gameObject);
             }
             else 
@@ -60,18 +61,6 @@ public class PickUpController : MonoBehaviour
             heldObjRB.AddForce(moveDirection * pickupForce);
         }
     }
-    
-    void MoveToPlatform()
-    {
-        if (Vector3.Distance(heldObj.transform.position, yellowPlatform.position) > 0.1f)
-        {
-            Vector3 moveDirection = (yellowPlatform.position - heldObj.transform.position);
-
-            heldObjRB.AddForce(moveDirection * pickupForce);
-        }
-    }
-
-
 
     void PickupObject(GameObject pickObj)
     {
@@ -82,8 +71,11 @@ public class PickUpController : MonoBehaviour
             heldObjRB.drag = 10;
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
 
+            heldObjRB.transform.rotation = holdArea.rotation;
+
             heldObjRB.transform.parent = holdArea;
             heldObj = pickObj;
+
         }
     }
     void DropObject()
@@ -102,14 +94,30 @@ public class PickUpController : MonoBehaviour
         if (pickObj.GetComponent<Rigidbody>())
         {
             heldObjRB = pickObj.GetComponent<Rigidbody>();
-            heldObjRB.useGravity = false;
-            heldObjRB.drag = 10;
+            heldObjRB.useGravity = true;
+            heldObjRB.drag = 1;
+
+
             heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
 
-            heldObjRB.transform.parent = yellowPlatform;
-            heldObj = null;
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)) 
+            {
+                
 
-            MoveToPlatform();
+                if (hit.collider & hit.transform.childCount == 0)
+                {
+                    
+                    heldObjRB.transform.parent = hit.transform;
+                    pickObj.transform.position = hit.transform.position;
+                    pickObj.transform.rotation = hit.transform.rotation;
+                    heldObj = null;
+                }
+                else
+                {
+                    DropObject();
+                }
+            }
         }
     }
 }
