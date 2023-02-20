@@ -6,13 +6,16 @@ using UnityEngine.InputSystem.HID;
 public class PickUpController : MonoBehaviour
 {
     [Header("Pickup Settings")]
-    [SerializeField] Transform holdArea;
+    [SerializeField] Transform holdAreaRight;
+    [SerializeField] Transform holdAreaLeft;
     [SerializeField] GameObject yellowPlatform;
     [SerializeField] GameObject bluePlatform;
     [SerializeField] GameObject greenPlatform;
 
     private GameObject heldObj;
+    private GameObject heldObjSub;
     private Rigidbody heldObjRB;
+    private Rigidbody heldObjRBSub;
 
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
@@ -22,64 +25,142 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
+        //Right hand
 
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
 
             if (heldObj == null)
             {
-                
                 if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerMask))
                 {
-                    PickupObject(hit.transform.gameObject);
+                    PickupObjectToRightHand(hit.transform.gameObject);
                 }
             }
             else if (heldObj != null & (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)))
             {
-                
-                DropObjectAtPlatform(heldObj.transform.gameObject);
-            }
-            else 
+                DropRightObjectAtPlatform(heldObj.transform.gameObject);
+            } 
+            else
             {
-                DropObject();
+                DropRightObject();
             }
         }
-        if (heldObj != null)
-        {  
+
+        //Left hand
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit hit;
+
+            if (heldObjSub == null)
+            {
+                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerMask))
+                {
+                    PickupObjectToLeftHand(hit.transform.gameObject);
+                }
+            }
+            else if (heldObjSub != null & (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)))
+            {
+                DropLeftObjectAtPlatform(heldObjSub.transform.gameObject);
+            }
+            else
+            {
+                DropLeftObject();
+            }
+        }
+
+
+        if (heldObjSub != null | heldObj != null)
+        {
             MoveObject();
         }
     }
+   
+    /*
+    void ChangeHands()
+    {
+        
+        if (heldObjSub == null & heldObj != null)
+        {
+            heldObjSub = heldObj;
 
+            heldObj.transform.parent = holdAreaLeft;
+            heldObj.transform.position = holdAreaLeft.position;
+
+            heldObj = null;
+        }
+        else if (heldObjSub != null & heldObj == null)
+        {
+            heldObj = heldObjSub;
+
+            heldObjSub.transform.parent = holdAreaRight;
+            heldObjSub.transform.position = holdAreaRight.position;
+            
+            heldObjSub = null;
+        }
+    }
+    */
+    
 
     void MoveObject()
     {
-        if (Vector3.Distance(heldObj.transform.position, holdArea.position) > 0.1f)
+        if (holdAreaLeft.childCount > 0)
         {
-            Vector3 moveDirection = (holdArea.position - heldObj.transform.position);
+            if (Vector3.Distance(heldObjSub.transform.position, holdAreaLeft.position) > 0.1f)
+            {
+                Vector3 moveDirection = (holdAreaLeft.position - heldObjSub.transform.position);
 
-            heldObjRB.AddForce(moveDirection * pickupForce);
+                heldObjRBSub.AddForce(moveDirection * pickupForce);
+            }
         }
+        if (holdAreaRight.childCount > 0)
+        {
+            if (Vector3.Distance(heldObj.transform.position, holdAreaRight.position) > 0.1f)
+            {
+                Vector3 moveDirection = (holdAreaRight.position - heldObj.transform.position);
+
+                heldObjRB.AddForce(moveDirection * pickupForce);
+            }
+        }
+
     }
 
-    void PickupObject(GameObject pickObj)
+
+    void PickupObjectToRightHand(GameObject pickObj)
     {
-        if (pickObj.GetComponent<Rigidbody>())
-        {
-            heldObjRB = pickObj.GetComponent<Rigidbody>();
-            heldObjRB.useGravity = false;
-            heldObjRB.drag = 10;
-            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+        heldObjRB = pickObj.GetComponent<Rigidbody>();
+        heldObjRB.useGravity = false;
+        heldObjRB.drag = 10;
+        heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
 
-            heldObjRB.transform.rotation = holdArea.rotation;
+        heldObjRB.transform.rotation = holdAreaRight.rotation;
 
-            heldObjRB.transform.parent = holdArea;
-            heldObj = pickObj;
+        heldObjRB.transform.parent = holdAreaRight;
 
-        }
+        heldObj = pickObj;
+
     }
-    void DropObject()
+
+    void PickupObjectToLeftHand(GameObject pickObjSub)
     {
+        heldObjRBSub = pickObjSub.GetComponent<Rigidbody>();
+        heldObjRBSub.useGravity = false;
+        heldObjRBSub.drag = 10;
+        heldObjRBSub.constraints = RigidbodyConstraints.FreezeRotation;
+
+        heldObjRBSub.transform.rotation = holdAreaLeft.rotation;
+
+        heldObjRBSub.transform.parent = holdAreaLeft;
+
+        heldObjSub = pickObjSub;
+
+    }
+
+    void DropRightObject()
+    {
+        
 
         heldObjRB.useGravity = true;
         heldObjRB.drag = 1;
@@ -87,19 +168,24 @@ public class PickUpController : MonoBehaviour
 
         heldObjRB.transform.parent = null;
         heldObj = null;
+
+    }
+    void DropLeftObject()
+    {
+
+        heldObjRBSub.useGravity = true;
+        heldObjRBSub.drag = 1;
+        heldObjRBSub.constraints = RigidbodyConstraints.None;
+
+        heldObjRBSub.transform.parent = null;
+        heldObjSub = null;
+
     }
 
-    void DropObjectAtPlatform(GameObject pickObj)
+    void DropRightObjectAtPlatform(GameObject pickObj)
     {
         if (pickObj.GetComponent<Rigidbody>())
         {
-            heldObjRB = pickObj.GetComponent<Rigidbody>();
-            heldObjRB.useGravity = true;
-            heldObjRB.drag = 1;
-
-
-            heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)) 
             {
@@ -111,12 +197,59 @@ public class PickUpController : MonoBehaviour
                     heldObjRB.transform.parent = hit.transform;
                     pickObj.transform.position = hit.transform.position;
                     pickObj.transform.rotation = hit.transform.rotation;
+
+                    heldObjRB.constraints = RigidbodyConstraints.FreezePosition;
+
+                    heldObjRB = pickObj.GetComponent<Rigidbody>();
+                    heldObjRB.useGravity = true;
+                    heldObjRB.drag = 1;
+
+
+                    heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
+                    
                     heldObj = null;
                 }
                 else
                 {
-                    DropObject();
+                    DropRightObject();
                 }
+
+            }
+        }
+    }
+
+    void DropLeftObjectAtPlatform(GameObject pickObj)
+    {
+        if (pickObj.GetComponent<Rigidbody>())
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform))
+            {
+
+
+                if (hit.collider & hit.transform.childCount == 0)
+                {
+
+                    heldObjRBSub.transform.parent = hit.transform;
+                    pickObj.transform.position = hit.transform.position;
+                    pickObj.transform.rotation = hit.transform.rotation;
+
+                    heldObjRBSub.constraints = RigidbodyConstraints.FreezePosition;
+
+                    heldObjRBSub = pickObj.GetComponent<Rigidbody>();
+                    heldObjRBSub.useGravity = true;
+                    heldObjRBSub.drag = 1;
+
+
+                    heldObjRBSub.constraints = RigidbodyConstraints.FreezeRotation;
+
+                    heldObjSub = null;
+                }
+                else
+                {
+                    DropLeftObject();
+                }
+
             }
         }
     }
