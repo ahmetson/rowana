@@ -6,16 +6,17 @@ using UnityEngine.InputSystem.HID;
 public class PickUpController : MonoBehaviour
 {
     [Header("Pickup Settings")]
-    [SerializeField] Transform holdAreaRight;
-    [SerializeField] Transform holdAreaLeft;
+    [SerializeField] public Transform holdAreaRight;
+    [SerializeField] public Transform holdAreaLeft;
     [SerializeField] GameObject yellowPlatform;
     [SerializeField] GameObject bluePlatform;
     [SerializeField] GameObject greenPlatform;
 
-    private GameObject heldObj;
-    private GameObject heldObjSub;
+    public GameObject heldObj;
+    public GameObject heldObjSub;
     private Rigidbody heldObjRB;
     private Rigidbody heldObjRBSub;
+    private Vector3 lastScale;
 
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
@@ -25,28 +26,7 @@ public class PickUpController : MonoBehaviour
 
     private void Update()
     {
-        //Right hand
-
-        if (Input.GetMouseButtonDown(1))
-        {
-            RaycastHit hit;
-
-            if (heldObj == null)
-            {
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerMask))
-                {
-                    PickupObjectToRightHand(hit.transform.gameObject);
-                }
-            }
-            else if (heldObj != null & (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)))
-            {
-                DropRightObjectAtPlatform(heldObj.transform.gameObject);
-            } 
-            else
-            {
-                DropRightObject();
-            }
-        }
+        Debug.Log(heldObjSub);
 
         //Left hand
 
@@ -65,12 +45,17 @@ public class PickUpController : MonoBehaviour
             {
                 DropLeftObjectAtPlatform(heldObjSub.transform.gameObject);
             }
-            else
+            else if (heldObjSub != null)
             {
-                DropLeftObject();
+                DropLeftObject(heldObjSub.transform.gameObject);
             }
-        }
 
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            ChangeHands();
+        }
+        
 
         if (heldObjSub != null | heldObj != null)
         {
@@ -78,30 +63,34 @@ public class PickUpController : MonoBehaviour
         }
     }
    
-    /*
+    
     void ChangeHands()
     {
-        
+
         if (heldObjSub == null & heldObj != null)
         {
             heldObjSub = heldObj;
 
-            heldObj.transform.parent = holdAreaLeft;
-            heldObj.transform.position = holdAreaLeft.position;
+            heldObjSub.transform.parent = holdAreaLeft;
+            heldObjSub.transform.position = holdAreaLeft.position;
+            heldObjSub.transform.localScale = lastScale;
 
             heldObj = null;
         }
         else if (heldObjSub != null & heldObj == null)
         {
-            heldObj = heldObjSub;
+            lastScale = heldObjSub.transform.localScale;
 
-            heldObjSub.transform.parent = holdAreaRight;
-            heldObjSub.transform.position = holdAreaRight.position;
+            heldObj = heldObjSub;
             
+            heldObj.transform.parent = holdAreaRight;
+            heldObj.transform.position = holdAreaRight.position;
+            heldObj.transform.localScale = new Vector3(150f, 150f, 150f);
+
             heldObjSub = null;
         }
     }
-    */
+    
     
 
     void MoveObject()
@@ -111,7 +100,7 @@ public class PickUpController : MonoBehaviour
             if (Vector3.Distance(heldObjSub.transform.position, holdAreaLeft.position) > 0.1f)
             {
                 Vector3 moveDirection = (holdAreaLeft.position - heldObjSub.transform.position);
-
+                
                 heldObjRBSub.AddForce(moveDirection * pickupForce);
             }
         }
@@ -124,22 +113,6 @@ public class PickUpController : MonoBehaviour
                 heldObjRB.AddForce(moveDirection * pickupForce);
             }
         }
-
-    }
-
-
-    void PickupObjectToRightHand(GameObject pickObj)
-    {
-        heldObjRB = pickObj.GetComponent<Rigidbody>();
-        heldObjRB.useGravity = false;
-        heldObjRB.drag = 10;
-        heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-
-        heldObjRB.transform.rotation = holdAreaRight.rotation;
-
-        heldObjRB.transform.parent = holdAreaRight;
-
-        heldObj = pickObj;
 
     }
 
@@ -158,64 +131,19 @@ public class PickUpController : MonoBehaviour
 
     }
 
-    void DropRightObject()
+    void DropLeftObject(GameObject pickObjSub)
     {
-        
-
-        heldObjRB.useGravity = true;
-        heldObjRB.drag = 1;
-        heldObjRB.constraints = RigidbodyConstraints.None;
-
-        heldObjRB.transform.parent = null;
-        heldObj = null;
-
-    }
-    void DropLeftObject()
-    {
+        heldObjRBSub = pickObjSub.GetComponent<Rigidbody>();
 
         heldObjRBSub.useGravity = true;
         heldObjRBSub.drag = 1;
         heldObjRBSub.constraints = RigidbodyConstraints.None;
 
+        heldObjRBSub.AddForce(holdAreaLeft.up * 100, ForceMode.Impulse);
+
         heldObjRBSub.transform.parent = null;
         heldObjSub = null;
 
-    }
-
-    void DropRightObjectAtPlatform(GameObject pickObj)
-    {
-        if (pickObj.GetComponent<Rigidbody>())
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)) 
-            {
-                
-
-                if (hit.collider & hit.transform.childCount == 0)
-                {
-                    
-                    heldObjRB.transform.parent = hit.transform;
-                    pickObj.transform.position = hit.transform.position;
-                    pickObj.transform.rotation = hit.transform.rotation;
-
-                    heldObjRB.constraints = RigidbodyConstraints.FreezePosition;
-
-                    heldObjRB = pickObj.GetComponent<Rigidbody>();
-                    heldObjRB.useGravity = true;
-                    heldObjRB.drag = 1;
-
-
-                    heldObjRB.constraints = RigidbodyConstraints.FreezeRotation;
-                    
-                    heldObj = null;
-                }
-                else
-                {
-                    DropRightObject();
-                }
-
-            }
-        }
     }
 
     void DropLeftObjectAtPlatform(GameObject pickObj)
@@ -229,6 +157,7 @@ public class PickUpController : MonoBehaviour
 
                 if (hit.collider & hit.transform.childCount == 0)
                 {
+                    heldObjRBSub = pickObj.GetComponent<Rigidbody>();
 
                     heldObjRBSub.transform.parent = hit.transform;
                     pickObj.transform.position = hit.transform.position;
@@ -236,7 +165,6 @@ public class PickUpController : MonoBehaviour
 
                     heldObjRBSub.constraints = RigidbodyConstraints.FreezePosition;
 
-                    heldObjRBSub = pickObj.GetComponent<Rigidbody>();
                     heldObjRBSub.useGravity = true;
                     heldObjRBSub.drag = 1;
 
@@ -247,7 +175,7 @@ public class PickUpController : MonoBehaviour
                 }
                 else
                 {
-                    DropLeftObject();
+                    DropLeftObject(pickObj);
                 }
 
             }
