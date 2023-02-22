@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
+
 public class PickUpController : MonoBehaviour
 {
     [Header("Pickup Settings")]
@@ -17,6 +18,8 @@ public class PickUpController : MonoBehaviour
     private Rigidbody heldObjRB;
     private Rigidbody heldObjRBSub;
     private Vector3 lastScale;
+    private CopyMode copyScript;
+
 
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
@@ -24,9 +27,12 @@ public class PickUpController : MonoBehaviour
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask layerPlatform;
 
+    private void Start()
+    {
+        copyScript = FindObjectOfType<CopyMode>();
+    }
     private void Update()
     {
-        Debug.Log(heldObjSub);
 
         //Left hand
 
@@ -51,11 +57,21 @@ public class PickUpController : MonoBehaviour
             }
 
         }
+
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             ChangeHands();
         }
-        
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerMask))
+            {
+                copyScript.CanCopy(hit.rigidbody.gameObject);
+            }
+            
+        }
 
         if (heldObjSub != null | heldObj != null)
         {
@@ -66,6 +82,7 @@ public class PickUpController : MonoBehaviour
     
     void ChangeHands()
     {
+        //попал, сохранился, выпал (используем теги)
 
         if (heldObjSub == null & heldObj != null)
         {
@@ -139,7 +156,7 @@ public class PickUpController : MonoBehaviour
         heldObjRBSub.drag = 1;
         heldObjRBSub.constraints = RigidbodyConstraints.None;
 
-        heldObjRBSub.AddForce(holdAreaLeft.up * 100, ForceMode.Impulse);
+        heldObjRBSub.AddForce(holdAreaLeft.up * 5, ForceMode.Impulse);
 
         heldObjRBSub.transform.parent = null;
         heldObjSub = null;

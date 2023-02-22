@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 318768677}
   m_Layer: 3
   m_Name: CrystalBlue
-  m_TagString: Untagged
+  m_TagString: Unsaved
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,8 +1471,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4122242016943590823, guid: 6feb6aa14de2a3a4fa17376f565e180f, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 06976ba3bfaf0bb4b8548b6a720476b7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6feb6aa14de2a3a4fa17376f565e180f, type: 3}
+--- !u!95 &649938557 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4122242016943590823, guid: 6feb6aa14de2a3a4fa17376f565e180f, type: 3}
+  m_PrefabInstance: {fileID: 620144963}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &706933787 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2969234724541276439, guid: 6feb6aa14de2a3a4fa17376f565e180f, type: 3}
@@ -4473,7 +4482,7 @@ GameObject:
   - component: {fileID: 2044296592}
   m_Layer: 3
   m_Name: CrystalGreen
-  m_TagString: Untagged
+  m_TagString: Unsaved
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6050,6 +6059,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrystalEmpty
       objectReference: {fileID: 0}
+    - target: {fileID: 5983594302815602077, guid: a0a3723472c85924cbbe63b683157577, type: 3}
+      propertyPath: m_TagString
+      value: Saved
+      objectReference: {fileID: 0}
     - target: {fileID: 6068410359583360357, guid: a0a3723472c85924cbbe63b683157577, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -6459,7 +6472,7 @@ GameObject:
   - component: {fileID: 3130262740749713040}
   m_Layer: 3
   m_Name: CrystalYellow
-  m_TagString: Untagged
+  m_TagString: Unsaved
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27556,6 +27569,7 @@ GameObject:
   - component: {fileID: 8394981884032981647}
   - component: {fileID: 8394981884032981640}
   - component: {fileID: 8394981884032981649}
+  - component: {fileID: 8394981884032981650}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -27701,6 +27715,22 @@ MonoBehaviour:
   layerPlatform:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &8394981884032981650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8394981884032981642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40147751999044419b00004f19eada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savedAudio: []
+  savedMaterial: []
+  pickUpController: {fileID: 0}
+  anim: {fileID: 649938557}
 --- !u!4 &8394981884043851331
 Transform:
   m_ObjectHideFlags: 0

@@ -1,11 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 
 public class CopyMode : MonoBehaviour
 {
+  
+    public List<AudioClip> savedAudio;
+    public List<Material> savedMaterial;
+    
+
     public PickUpController pickUpController;
-    public ParticleSystem particle;
+    public Animator anim;
+    
 
     private void Start()
     {
@@ -15,30 +22,30 @@ public class CopyMode : MonoBehaviour
 
     private void Update()
     {
-        //particle.transform.rotation = pickUpController.holdAreaLeft.rotation;
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            CanCopy();
-        }
+        
     } 
 
-    void CanCopy()
+    void Copy(GameObject hitObj)
     {
-       if (pickUpController.holdAreaLeft.childCount > 0 & pickUpController.holdAreaRight.childCount > 0)  
-       {
-            if (pickUpController.heldObjSub.gameObject.name == "CrystalEmpty")
-            {
-                Debug.Log("canCopy");
-                //Copy();
-                particle.Play();
-            }
-        }
+        var hitAudioSourse = hitObj.GetComponentInChildren<AudioSource>();
+        var hitMeshRenderer = hitObj.GetComponentInChildren<MeshRenderer>();
 
+        savedAudio.Add(hitAudioSourse.clip);
+        savedMaterial.Add(hitMeshRenderer.material);
     }
 
-    void Copy()
+    public void CanCopy(GameObject hitObj)
     {
-        
+        if (hitObj.tag == "Unsaved")
+        {
+            anim.SetTrigger("TriggerToSpin");
+            hitObj.tag = "Saved";
+            
+            Copy(hitObj);
+        }
+        else
+        {
+            Debug.Log("Saved!!!");
+        }
     }
 }
