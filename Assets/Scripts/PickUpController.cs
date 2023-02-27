@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
@@ -9,9 +10,9 @@ public class PickUpController : MonoBehaviour
     [Header("Pickup Settings")]
     [SerializeField] public Transform holdAreaRight;
     [SerializeField] public Transform holdAreaLeft;
-    [SerializeField] GameObject yellowPlatform;
-    [SerializeField] GameObject bluePlatform;
-    [SerializeField] GameObject greenPlatform;
+    //[SerializeField] GameObject yellowPlatform;
+    //[SerializeField] GameObject bluePlatform;
+    //[SerializeField] GameObject greenPlatform;
 
     public GameObject heldObj;
     public GameObject heldObjSub;
@@ -19,6 +20,7 @@ public class PickUpController : MonoBehaviour
     private Rigidbody heldObjRBSub;
     private Vector3 lastScale;
     private CopyMode copyScript;
+    private List<string> clipList;
 
 
     [Header("Physics Parameters")]
@@ -30,11 +32,13 @@ public class PickUpController : MonoBehaviour
     private void Start()
     {
         copyScript = FindObjectOfType<CopyMode>();
+
+        
     }
     private void Update()
     {
 
-        //Left hand
+        UnMuteCrystal();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -55,7 +59,6 @@ public class PickUpController : MonoBehaviour
             {
                 DropLeftObject(heldObjSub.transform.gameObject);
             }
-
         }
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
@@ -77,6 +80,22 @@ public class PickUpController : MonoBehaviour
         {
             MoveObject();
         }
+    }
+
+
+    void UnMuteCrystal()
+    {
+        if (holdAreaLeft.childCount > 0)
+        {
+            holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 1f;
+
+        } 
+
+        if (holdAreaRight.childCount > 0)
+        {
+            holdAreaRight.GetComponentInChildren<AudioSource>().volume = 1f;
+
+        } 
     }
    
     
@@ -158,6 +177,8 @@ public class PickUpController : MonoBehaviour
 
         heldObjRBSub.AddForce(holdAreaLeft.up * 5, ForceMode.Impulse);
 
+        heldObjSub.GetComponentInChildren<AudioSource>().volume = 0f;
+
         heldObjRBSub.transform.parent = null;
         heldObjSub = null;
 
@@ -185,10 +206,15 @@ public class PickUpController : MonoBehaviour
                     heldObjRBSub.useGravity = true;
                     heldObjRBSub.drag = 1;
 
-
                     heldObjRBSub.constraints = RigidbodyConstraints.FreezeRotation;
 
+                    heldObjSub.GetComponentInChildren<AudioSource>().volume = 1f;
+
+                    heldObjSub.tag = "Unsaved";
+
                     heldObjSub = null;
+
+                    
                 }
                 else
                 {

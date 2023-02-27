@@ -62,6 +62,7 @@ public class CopyMode : MonoBehaviour
         savedAudio.Add(hitAudioSourse.clip);
         savedMaterial.Add(hitMeshRenderer.material);
         savedLight.Add(hitLight.color);
+        
     }
 
     public void CanCopy(GameObject hitObj)
