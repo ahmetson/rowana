@@ -247,67 +247,100 @@ public class PickUpController : MonoBehaviour
 
     public void CheckLightFirst()
     {
+        float angle = platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle;
+        float timer = 10f;
+
         if (platformOne.transform.childCount > 0)
         {
-            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = 30f;
             
-            //platformOne.GetComponentInChildren<Light>().spotAngle = 60f;
+
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
+            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+
+                //platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle ++;
+                //yield return new WaitForSeconds(1f);
+            
+            
 
         }
         if (platformOne.transform.childCount == 0)
         {
-            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = 0f;
-            //platformOne.GetComponentInChildren<Light>().spotAngle = 0f;
+            
+
+            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
+            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+
+                //platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle --;
+                //yield return new WaitForSeconds(1f);
+            
         }
     }
 
     public void CheckLightSecond()
     {
-        if (platformTwo.transform.childCount > 0)
-        {
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = 30f;
-        }
-        if (platformTwoSub.transform.childCount > 0)
-        {
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = 30f;
-        }
+
+        float angle = platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle;
+        float timer = 10f;
+        
+
         if (platformTwo.transform.childCount > 0 & platformTwoSub.transform.childCount > 0)
         {
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = 60f;
+            
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
+            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
         }
+
+        else if (platformTwo.transform.childCount > 0 | platformTwoSub.transform.childCount > 0)
+        {
+            
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
+            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+
         if (platformTwo.transform.childCount == 0 & platformTwoSub.transform.childCount == 0)
         {
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = 0f;
+            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
+            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
         }
+
+
     }
 
     public void CheckLightThird()
     {
+        float angle = platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle;
+        float timer = 10f;
 
-        if (platformThree.transform.childCount > 0 | platformThreeSub1.transform.childCount > 0 | platformThreeSub2.transform.childCount > 0)
-        {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 30f;
-        }
-
-        if (platformThree.transform.childCount == 0 & platformThreeSub1.transform.childCount == 0 & platformThreeSub2.transform.childCount == 0)
-        {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 0f;
-        }
-        if (platformThree.transform.childCount > 0 & platformThreeSub1.transform.childCount > 0)
-        {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 60f;
-        }
-        if (platformThreeSub1.transform.childCount > 0 & platformThreeSub2.transform.childCount > 0)
-        {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 60f;
-        }
-        if (platformThreeSub2.transform.childCount > 0 & platformThree.transform.childCount > 0)
-        {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 60f;
-        }
         if (platformThree.transform.childCount > 0 & platformThreeSub1.transform.childCount > 0 & platformThreeSub2.transform.childCount > 0)
         {
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = 90f;
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 90f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+        else if (platformThree.transform.childCount == 0 & platformThreeSub1.transform.childCount == 0 & platformThreeSub2.transform.childCount == 0)
+        {
+            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+        else if (platformThree.transform.childCount > 0 & platformThreeSub1.transform.childCount > 0)
+        {
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+        else if (platformThreeSub1.transform.childCount > 0 & platformThreeSub2.transform.childCount > 0)
+        {
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+        else if (platformThreeSub2.transform.childCount > 0 & platformThree.transform.childCount > 0)
+        {
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
+        }
+
+        else if (platformThree.transform.childCount > 0 | platformThreeSub1.transform.childCount > 0 | platformThreeSub2.transform.childCount > 0)
+        {
+            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
+            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
         }
     }
 
