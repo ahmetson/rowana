@@ -79,7 +79,7 @@ public class PickUpController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeHands();
         }

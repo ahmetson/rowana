@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class PlayerMovement : MonoBehaviour
 {
     private InputMaster controls;
-    private float moveSpeed = 6f;
+    private float moveSpeed = 5f;
+    private float sprintSpeed = 10f;
+    private float crouchSpeed = 3f;
     private Vector3 velosity;
     private float gravity = -9.81f;
     private Vector2 move;
@@ -19,10 +21,17 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     private bool isGrounded;
 
+    private AudioSource stepSource;
+    public List<AudioClip> stepsSounds;
+    public List<AudioClip> sprintSounds;
+    
+
     void Awake()
     {
         controls = new InputMaster();
         controller = GetComponent<CharacterController>();
+
+        stepSource = GetComponentInChildren<AudioSource>();
     }
 
     private void Update()
@@ -30,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         Grav();
         PlayerMovements();
         Jump();
+        
     }
 
     private void Grav()
@@ -46,19 +56,58 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerMovements()
     {
-        move = controls.Player.Movement.ReadValue<Vector2>();
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            move = controls.Player.Movement.ReadValue<Vector2>();
 
-        Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
-        controller.Move(movement * moveSpeed * Time.deltaTime);
+            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+            controller.Move(movement * sprintSpeed * Time.deltaTime);
+            Invoke("StepsSound", 0.4f);
+
+        } 
+        else if (Input.GetKey(KeyCode.LeftControl))
+        {
+            move = controls.Player.Movement.ReadValue<Vector2>();
+
+            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+            controller.Move(movement * crouchSpeed * Time.deltaTime);
+        } 
+        else 
+        {
+            move = controls.Player.Movement.ReadValue<Vector2>();
+
+            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+            controller.Move(movement * moveSpeed * Time.deltaTime);
+            
+            
+        }
+        if (controls.Player.Movement.triggered)
+        {
+            Invoke("StepsSound", 1f);
+        }
+
+
+    }
+
+    private void StepsSound()
+    {
+        
+        stepSource.clip = stepsSounds[Random.Range(0, stepsSounds.Count)];
+        stepSource.Play();
+        CancelInvoke();
     }
 
     private void Jump() 
     {
         if(controls.Player.Jump.triggered && isGrounded) {
             velosity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            CancelInvoke();
         }
+        
     }
- 
+
+
+
     private void OnEnable()
     {
         controls.Enable();
