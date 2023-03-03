@@ -40,7 +40,7 @@ public class MouseLook : MonoBehaviour
     private IEnumerator WaitForFunction()
     {
         yield return new WaitForSeconds(1f);
-        playerArms.localRotation = Quaternion.Euler(mouseY, -mouseX, 0);
+        playerArms.localRotation = Quaternion.Euler( mouseY, -mouseX, 0f);
     }
 
     private void Look()

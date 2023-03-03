@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * sprintSpeed * Time.deltaTime);
-            Invoke("StepsSound", 0.4f);
+            Invoke("StepsSound", 0.3f);
 
         } 
         else if (Input.GetKey(KeyCode.LeftControl))
@@ -78,15 +78,12 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * moveSpeed * Time.deltaTime);
-            
-            
-        }
-        if (controls.Player.Movement.triggered)
-        {
-            Invoke("StepsSound", 1f);
-        }
 
-
+            if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.D))
+            {
+                Invoke("StepsSound", 0.5f);
+            }
+        }
     }
 
     private void StepsSound()

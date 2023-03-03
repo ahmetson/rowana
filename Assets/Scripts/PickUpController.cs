@@ -98,24 +98,7 @@ public class PickUpController : MonoBehaviour
             MoveObject();
         }
     }
-
-
-    void UnMuteCrystal()
-    {
-        if (holdAreaLeft.childCount > 0)
-        {
-            holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 1f;
-
-        } 
-
-        if (holdAreaRight.childCount > 0)
-        {
-            holdAreaRight.GetComponentInChildren<AudioSource>().volume = 1f;
-
-        } 
-    }
-   
-    
+     
     void ChangeHands()
     {
         //попал, сохранился, выпал (используем теги)
@@ -150,7 +133,7 @@ public class PickUpController : MonoBehaviour
     {
         if (holdAreaLeft.childCount > 0)
         {
-            holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 1f;
+            holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 0.1f;
 
             if (Vector3.Distance(heldObjSub.transform.position, holdAreaLeft.position) > 0.1f)
             {
@@ -161,7 +144,7 @@ public class PickUpController : MonoBehaviour
         }
         if (holdAreaRight.childCount > 0)
         {
-            holdAreaRight.GetComponentInChildren<AudioSource>().volume = 1f;
+            holdAreaRight.GetComponentInChildren<AudioSource>().volume = 0.1f;
 
             if (Vector3.Distance(heldObj.transform.position, holdAreaRight.position) > 0.1f)
             {
@@ -229,7 +212,7 @@ public class PickUpController : MonoBehaviour
 
                     heldObjRBSub.constraints = RigidbodyConstraints.FreezeRotation;
 
-                    heldObjSub.GetComponentInChildren<AudioSource>().volume = 1f;
+                    heldObjSub.GetComponentInChildren<AudioSource>().volume = 0.1f;
 
                     heldObjSub.tag = "Unsaved";
 
