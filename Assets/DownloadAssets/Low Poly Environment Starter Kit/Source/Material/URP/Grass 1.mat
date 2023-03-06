@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ground
+  m_Name: Grass 1
   m_Shader: {fileID: -6465566751694194690, guid: 34bf62139380ab746a7f1308f87321db, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -45,15 +45,15 @@ Material:
     - Vector1_9ab9734743834cf3842959c683cd7be1: 12.9
     - Vector1_9b6655a35cbd46249272a3ac35cf83c0: 8.06
     - Vector1_aa2b152c968f43daadda83dc28f96934: 1
-    - Vector1_ac9ee0e7cc6f41dda544b0e89518d65a: -0.46
+    - Vector1_ac9ee0e7cc6f41dda544b0e89518d65a: 0
     - Vector1_b27e810e566a4496a2709e22a93790ae: 0
     - Vector1_f4346caac0c24533843067b1caa8641a: 1
     - Vector1_f4346caac0c24533843067b1caa8641a_1: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_adc979e474cd4c52803b73073550b88e: {r: 0.083686195, g: 0.1882353, b: 0.039215684, a: 0}
-    - Color_c4b6043ac1de492fb8bbd1482b723534: {r: 0, g: 0, b: 0, a: 0}
+    - Color_adc979e474cd4c52803b73073550b88e: {r: 0.05490196, g: 0.16078432, b: 0.050980393, a: 0}
+    - Color_c4b6043ac1de492fb8bbd1482b723534: {r: 0.076508, g: 0.3679245, b: 0.053800277, a: 0}
     - Vector2_b3499b7416b64762a92801fd1a260104: {r: 1.74, g: 0, b: 0, a: 0}
     - Vector2_d1261ba7c1e140be8ca68486b05912b4: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
