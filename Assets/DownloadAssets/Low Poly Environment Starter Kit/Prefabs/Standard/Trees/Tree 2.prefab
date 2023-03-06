@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 393303088244884141}
   m_Father: {fileID: 0}
@@ -100,7 +101,7 @@ PrefabInstance:
     - target: {fileID: -7577739868436781572, guid: 724a906d47352904889a720c820ef948, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: d6a4a4ab2012efa48972b622ae97cb60, type: 2}
+      objectReference: {fileID: 2100000, guid: 005323a4d1954f54ea7c10f803b453b7, type: 2}
     - target: {fileID: 919132149155446097, guid: 724a906d47352904889a720c820ef948, type: 3}
       propertyPath: m_Name
       value: Tree_2
@@ -108,7 +109,7 @@ PrefabInstance:
     - target: {fileID: 5156380648761706199, guid: 724a906d47352904889a720c820ef948, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f1ae7b91dd7e1d74884e29e8c66d18e0, type: 2}
+      objectReference: {fileID: 2100000, guid: df6ee7873f6a70148849853cdf894ac0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 724a906d47352904889a720c820ef948, type: 3}
 --- !u!4 &393303088244884141 stripped
