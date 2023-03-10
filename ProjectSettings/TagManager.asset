@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Saved
   - Unsaved
+  - Swamp
+  - Flat
+  - Forest
   layers:
   - Default
   - TransparentFX
