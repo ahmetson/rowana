@@ -2641,7 +2641,7 @@ GameObject:
   - component: {fileID: 318768677}
   m_Layer: 3
   m_Name: CrystalBlue
-  m_TagString: Untagged
+  m_TagString: Unsaved
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27368,7 +27368,7 @@ GameObject:
   - component: {fileID: 2044296592}
   m_Layer: 3
   m_Name: CrystalGreen
-  m_TagString: Untagged
+  m_TagString: Unsaved
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
