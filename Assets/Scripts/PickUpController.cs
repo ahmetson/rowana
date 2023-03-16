@@ -20,6 +20,7 @@ public class PickUpController : MonoBehaviour
     [SerializeField] public GameObject platformThreeSub1;
     [SerializeField] public GameObject platformThreeSub2;
 
+    public Animator anim;
 
     public GameObject heldObj;
     public GameObject heldObjSub;
@@ -32,7 +33,7 @@ public class PickUpController : MonoBehaviour
     private CopyMode copyScript;
     
 
-    //private List<string> clipList;
+    
 
 
 
@@ -169,6 +170,7 @@ public class PickUpController : MonoBehaviour
 
         heldObjSub = pickObjSub;
 
+        anim.SetTrigger("isPickUp");
     }
 
     void DropLeftObject(GameObject pickObjSub)
@@ -179,13 +181,14 @@ public class PickUpController : MonoBehaviour
         heldObjRBSub.drag = 1;
         heldObjRBSub.constraints = RigidbodyConstraints.None;
 
-        heldObjRBSub.AddForce(holdAreaLeft.up * 5, ForceMode.Impulse);
+        heldObjRBSub.AddForce(holdAreaLeft.up * -5, ForceMode.Impulse);
 
         heldObjSub.GetComponentInChildren<AudioSource>().volume = 0f;
 
         heldObjRBSub.transform.parent = null;
         heldObjSub = null;
 
+        anim.SetTrigger("isDroped");
     }
 
     void DropLeftObjectAtPlatform(GameObject pickObj)
@@ -218,6 +221,7 @@ public class PickUpController : MonoBehaviour
 
                     heldObjSub = null;
 
+                    anim.SetTrigger("isDroped");
                 }
                 else
                 {
