@@ -37,7 +37,7 @@ public class CopyMode : MonoBehaviour
         CheckLists();
         if (Input.GetKeyDown(KeyCode.B)) 
         { 
-            if (!ui.active)
+            if (!ui.activeInHierarchy)
             {
                 ui.SetActive(true);
                 cameraMove.mouseSensitivity = 0f;

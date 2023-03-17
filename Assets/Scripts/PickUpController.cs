@@ -31,11 +31,7 @@ public class PickUpController : MonoBehaviour
     private Vector3 lastScale;
 
     private CopyMode copyScript;
-    
-
-    
-
-
+    private DividerSources dividerSources;
 
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
@@ -46,7 +42,7 @@ public class PickUpController : MonoBehaviour
     private void Start()
     {
         copyScript = FindObjectOfType<CopyMode>();
-        
+        dividerSources = FindObjectOfType<DividerSources>();
         
 
     }
@@ -54,10 +50,10 @@ public class PickUpController : MonoBehaviour
     {
 
         //UnMuteCrystal();
-
-        CheckLightFirst();
-        CheckLightSecond();
-        CheckLightThird();
+        Debug.Log(heldObj);
+        //CheckLightFirst();
+        //CheckLightSecond();
+        //CheckLightThird();
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -134,7 +130,7 @@ public class PickUpController : MonoBehaviour
     {
         if (holdAreaLeft.childCount > 0)
         {
-            holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 0.1f;
+            //holdAreaLeft.GetComponentInChildren<AudioSource>().volume = 1f;
 
             if (Vector3.Distance(heldObjSub.transform.position, holdAreaLeft.position) > 0.1f)
             {
@@ -145,7 +141,7 @@ public class PickUpController : MonoBehaviour
         }
         if (holdAreaRight.childCount > 0)
         {
-            holdAreaRight.GetComponentInChildren<AudioSource>().volume = 0.1f;
+            //holdAreaRight.GetComponentInChildren<AudioSource>().volume = 1f;
 
             if (Vector3.Distance(heldObj.transform.position, holdAreaRight.position) > 0.1f)
             {
@@ -171,6 +167,8 @@ public class PickUpController : MonoBehaviour
         heldObjSub = pickObjSub;
 
         anim.SetTrigger("isPickUp");
+
+        dividerSources.UnMute(heldObjSub.GetComponent<Collider>());
     }
 
     void DropLeftObject(GameObject pickObjSub)
@@ -183,12 +181,16 @@ public class PickUpController : MonoBehaviour
 
         heldObjRBSub.AddForce(holdAreaLeft.up * -5, ForceMode.Impulse);
 
-        heldObjSub.GetComponentInChildren<AudioSource>().volume = 0f;
+        //heldObjSub.GetComponentInChildren<AudioSource>().volume = 0f;
+
+        dividerSources.Mute(heldObjSub.GetComponent<Collider>());
 
         heldObjRBSub.transform.parent = null;
         heldObjSub = null;
 
         anim.SetTrigger("isDroped");
+        
+        
     }
 
     void DropLeftObjectAtPlatform(GameObject pickObj)
@@ -215,19 +217,20 @@ public class PickUpController : MonoBehaviour
 
                     heldObjRBSub.constraints = RigidbodyConstraints.FreezeRotation;
 
-                    heldObjSub.GetComponentInChildren<AudioSource>().volume = 0.1f;
+                    //heldObjSub.GetComponentInChildren<AudioSource>().volume = 1f;
 
                     heldObjSub.tag = "Unsaved";
 
                     heldObjSub = null;
 
                     anim.SetTrigger("isDroped");
+
+                    dividerSources.CheckPlatform(hit.collider);
                 }
                 else
                 {
                     DropLeftObject(pickObj);
                 }
-
             }
         }
     }
