@@ -9,7 +9,7 @@ public class DividerSources : MonoBehaviour
     {
         
         AudioMixer mixer = platform.transform.GetComponentInChildren<AudioSource>().outputAudioMixerGroup.audioMixer;
-        Debug.Log(mixer);
+        
 
         if (platform.name == "HoldAreaA")
         {

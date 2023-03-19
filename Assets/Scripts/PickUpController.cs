@@ -50,7 +50,6 @@ public class PickUpController : MonoBehaviour
     {
 
         //UnMuteCrystal();
-        Debug.Log(heldObj);
         //CheckLightFirst();
         //CheckLightSecond();
         //CheckLightThird();
@@ -75,12 +74,12 @@ public class PickUpController : MonoBehaviour
                 DropLeftObject(heldObjSub.transform.gameObject);
             }
         }
-
+        /*
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeHands();
         }
-
+        */
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
