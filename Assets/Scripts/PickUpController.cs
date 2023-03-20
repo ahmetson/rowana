@@ -24,6 +24,7 @@ public class PickUpController : MonoBehaviour
 
     public GameObject heldObj;
     public GameObject heldObjSub;
+    public GameObject radio;
 
     private Rigidbody heldObjRB;
     private Rigidbody heldObjRBSub;
@@ -53,7 +54,7 @@ public class PickUpController : MonoBehaviour
         //CheckLightFirst();
         //CheckLightSecond();
         //CheckLightThird();
-
+        Swap();
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit hit;
@@ -74,12 +75,12 @@ public class PickUpController : MonoBehaviour
                 DropLeftObject(heldObjSub.transform.gameObject);
             }
         }
-        /*
+        
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeHands();
         }
-        */
+        
         if (Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
@@ -97,15 +98,17 @@ public class PickUpController : MonoBehaviour
      
     void ChangeHands()
     {
-        //попал, сохранился, выпал (используем теги)
-
         if (heldObjSub == null & heldObj != null)
         {
             heldObjSub = heldObj;
 
             heldObjSub.transform.parent = holdAreaLeft;
             heldObjSub.transform.position = holdAreaLeft.position;
+            heldObjSub.transform.rotation = holdAreaLeft.rotation;
             heldObjSub.transform.localScale = lastScale;
+            heldObj.GetComponentInChildren<Animator>().enabled = true;
+
+            anim.SetTrigger("isPickUp");
 
             heldObj = null;
         }
@@ -117,14 +120,16 @@ public class PickUpController : MonoBehaviour
             
             heldObj.transform.parent = holdAreaRight;
             heldObj.transform.position = holdAreaRight.position;
-            heldObj.transform.localScale = new Vector3(150f, 150f, 150f);
+            heldObj.transform.rotation = holdAreaRight.rotation;
+            heldObj.transform.localScale = new Vector3(2f, 2f, 2f);
+            heldObj.GetComponentInChildren<Animator>().enabled = false;
+
+            anim.SetTrigger("isDroped");
 
             heldObjSub = null;
         }
     }
     
-    
-
     void MoveObject()
     {
         if (holdAreaLeft.childCount > 0)
@@ -181,6 +186,7 @@ public class PickUpController : MonoBehaviour
         heldObjRBSub.AddForce(holdAreaLeft.up * -5, ForceMode.Impulse);
 
         //heldObjSub.GetComponentInChildren<AudioSource>().volume = 0f;
+        //heldObjSub.GetComponentInChildren<Animator>().enabled = false;
 
         dividerSources.Mute(heldObjSub.GetComponent<Collider>());
 
@@ -333,4 +339,32 @@ public class PickUpController : MonoBehaviour
         }
     }
 
+    public void Swap()
+    {
+        
+        if (holdAreaLeft.childCount == 0)
+        {
+            if (Input.GetKeyDown("1"))
+            {
+                anim.SetInteger("numInventory", 1);
+                StartCoroutine(RadioDisActive());
+            }
+            if (Input.GetKeyDown("2"))
+            {
+                anim.SetInteger("numInventory", 2);
+                StartCoroutine(RadioActive());
+            }
+            
+        }
+    }
+    IEnumerator RadioDisActive()
+    {
+        yield return new WaitForSeconds(0.3f);
+        radio.SetActive(false);
+    }
+    IEnumerator RadioActive()
+    {
+        yield return new WaitForSeconds(0.4f);
+        radio.SetActive(true);
+    }
 }

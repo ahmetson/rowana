@@ -11,7 +11,7 @@ public class CopyMode : MonoBehaviour
     public List<Material> savedMaterial;
     public List<Color> savedLight;
 
-
+    public MenuScript menuScript;
     private PickUpController pickUpController;
     public Animator anim;
     private MouseLook cameraMove;
@@ -35,23 +35,32 @@ public class CopyMode : MonoBehaviour
     private void Update()
     {
         CheckLists();
-        if (Input.GetKeyDown(KeyCode.B)) 
-        { 
-            if (!ui.activeInHierarchy)
-            {
-                ui.SetActive(true);
-                cameraMove.mouseSensitivity = 0f;
-                Cursor.lockState = CursorLockMode.None;
+        CrystalSettings();
+    } 
 
-            }
-            else
+    public void CrystalSettings()
+    {
+        if (pickUpController.radio.active == true)
+        {
+            if (Input.GetKeyDown(KeyCode.B))
             {
-                ui.SetActive(false); 
-                cameraMove.mouseSensitivity = 50f;
-                Cursor.lockState = CursorLockMode.Locked;
+                if (!ui.activeInHierarchy)
+                {
+                    ui.SetActive(true);
+                    cameraMove.mouseSensitivity = 0f;
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+
+                }
+                else
+                {
+                    ui.SetActive(false);
+                    menuScript.BackToGame();
+                }
             }
         }
-    } 
+    }
+
 
     void Copy(GameObject hitObj)
     {

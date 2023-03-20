@@ -12,10 +12,10 @@ public class ChangeSkyBoxOnLocation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log (other.tag);
+        
         if (other.CompareTag ("Player"))
         {    
-            Debug.Log(other.tag);
+            
             if (GetComponent<Collider>().CompareTag("Flat"))
             {
                 RenderSettings.skybox = sun;

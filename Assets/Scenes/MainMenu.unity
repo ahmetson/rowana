@@ -883,6 +883,9 @@ MonoBehaviour:
   mouseLook: {fileID: 0}
   sliderVolume: {fileID: 0}
   sliderSensivity: {fileID: 0}
+  sensivity: 20
+  canvas: {fileID: 0}
+  crossHair: {fileID: 0}
 --- !u!1 &417646540
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,7 +3946,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 50
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

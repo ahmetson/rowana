@@ -11,7 +11,7 @@ public class MenuScript : MonoBehaviour
     public Slider sliderVolume;
     public Slider sliderSensivity;
 
-    private float sensivity = 50f;
+    public float sensivity = 20f;
 
     public GameObject canvas;
     public GameObject crossHair;
@@ -44,7 +44,7 @@ public class MenuScript : MonoBehaviour
             crossHair.SetActive(false);
             mouseLook.mouseSensitivity = 0f;
         }
-       
+        Debug.Log(mouseLook.mouseSensitivity);
     }
     private void Awake()
     {
