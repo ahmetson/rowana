@@ -44,7 +44,7 @@ public class MenuScript : MonoBehaviour
             crossHair.SetActive(false);
             mouseLook.mouseSensitivity = 0f;
         }
-        Debug.Log(mouseLook.mouseSensitivity);
+        
     }
     private void Awake()
     {

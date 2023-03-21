@@ -13,7 +13,7 @@ public class CopyMode : MonoBehaviour
 
     public MenuScript menuScript;
     private PickUpController pickUpController;
-    public Animator anim;
+    //public Animator anim;
     private MouseLook cameraMove;
 
     public GameObject ui;
@@ -26,6 +26,7 @@ public class CopyMode : MonoBehaviour
         cameraMove = FindObjectOfType<MouseLook>();
 
         ui.SetActive(false);
+
         foreach (Button but in buttons)
         {
             but.gameObject.SetActive(false);
@@ -78,7 +79,7 @@ public class CopyMode : MonoBehaviour
     {
         if (hitObj.tag == "Unsaved")
         {
-            anim.SetTrigger("TriggerToSpin");
+            //anim.SetTrigger("TriggerToSpin");
             hitObj.tag = "Saved";
             
             Copy(hitObj);
