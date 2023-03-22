@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class CopyMode : MonoBehaviour
@@ -18,7 +19,8 @@ public class CopyMode : MonoBehaviour
 
     public GameObject ui;
     public List<Button> buttons;
-    
+
+    private InputMaster controls;
 
     private void Start()
     {
@@ -33,6 +35,11 @@ public class CopyMode : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        controls = new InputMaster();
+    }
+
     private void Update()
     {
         CheckLists();
@@ -41,9 +48,9 @@ public class CopyMode : MonoBehaviour
 
     public void CrystalSettings()
     {
-        if (pickUpController.radio.active == true)
+        if (pickUpController.radio.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.B))
+            if (controls.Inventory.SettingsCrystal.triggered)
             {
                 if (!ui.activeInHierarchy)
                 {
@@ -51,12 +58,13 @@ public class CopyMode : MonoBehaviour
                     cameraMove.mouseSensitivity = 0f;
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;
-
+                    menuScript.enabled = false;
                 }
                 else
                 {
                     ui.SetActive(false);
                     menuScript.BackToGame();
+                    menuScript.enabled = true;
                 }
             }
         }
@@ -112,5 +120,14 @@ public class CopyMode : MonoBehaviour
             pickUpController.heldObj.GetComponentInChildren<MeshRenderer>().material = savedMaterial[i];
             pickUpController.heldObj.GetComponentInChildren<Light>().color = savedLight[i];
         }
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }

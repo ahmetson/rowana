@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor.ShaderGraph;
 
 public class MenuScript : MonoBehaviour
 {
     public MouseLook mouseLook;
+    public CopyMode copyMode;
 
     public Slider sliderVolume;
     public Slider sliderSensivity;
@@ -15,7 +17,15 @@ public class MenuScript : MonoBehaviour
 
     public GameObject canvas;
     public GameObject crossHair;
-    
+
+    private InputMaster controls;
+
+
+    private void Awake()
+    {
+        controls = new InputMaster();
+        mouseLook = FindObjectOfType<MouseLook>();
+    }
 
     private void Start()
     {
@@ -36,20 +46,19 @@ public class MenuScript : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (controls.Menu.Escape.triggered)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             canvas.SetActive(true);
             crossHair.SetActive(false);
             mouseLook.mouseSensitivity = 0f;
+            copyMode.enabled = false;
+            
         }
         
     }
-    private void Awake()
-    {
-        mouseLook = FindObjectOfType<MouseLook>();
-    }
+
     public void PlayTutorial()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -65,6 +74,7 @@ public class MenuScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         mouseLook.mouseSensitivity = sensivity;
+        copyMode.enabled = true;
         
     }
  
@@ -98,5 +108,15 @@ public class MenuScript : MonoBehaviour
     {
         PlayerPrefs.SetFloat("globalVolume", sliderVolume.value);
         PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value);
+    }
+
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }

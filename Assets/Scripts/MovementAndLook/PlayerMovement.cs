@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerMovements()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (controls.Player.Sprint.triggered)
         {
             move = controls.Player.Movement.ReadValue<Vector2>();
 
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             Invoke("StepsSound", 0.3f);
 
         } 
-        else if (Input.GetKey(KeyCode.LeftControl))
+        else if (controls.Player.Crouch.triggered)
         {
             move = controls.Player.Movement.ReadValue<Vector2>();
 
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * moveSpeed * Time.deltaTime);
 
-            if (Input.GetKey(KeyCode.W) | Input.GetKey(KeyCode.A) | Input.GetKey(KeyCode.S) | Input.GetKey(KeyCode.D))
+            if (controls.Player.Movement.triggered)
             {
                 Invoke("StepsSound", 0.5f);
             }

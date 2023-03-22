@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.InputSystem;
 
 
 public class PickUpController : MonoBehaviour
@@ -34,6 +35,8 @@ public class PickUpController : MonoBehaviour
     private CopyMode copyScript;
     private DividerSources dividerSources;
 
+    public InputMaster controls;
+
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
     [SerializeField] private float pickupForce = 150.0f;
@@ -44,9 +47,16 @@ public class PickUpController : MonoBehaviour
     {
         copyScript = FindObjectOfType<CopyMode>();
         dividerSources = FindObjectOfType<DividerSources>();
+
         
 
     }
+
+    private void Awake()
+    {
+        controls = new InputMaster();
+    }
+
     private void Update()
     {
 
@@ -55,7 +65,7 @@ public class PickUpController : MonoBehaviour
         //CheckLightSecond();
         //CheckLightThird();
         Swap();
-        if (Input.GetMouseButtonDown(0))
+        if (controls.Player.LeftMouse.triggered)
         {
             RaycastHit hit;
             if (heldObjSub == null)
@@ -76,12 +86,12 @@ public class PickUpController : MonoBehaviour
             }
         }
         
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (controls.Player.Swap.triggered) //Bind Swap
         {
             ChangeHands();
         }
         
-        if (Input.GetMouseButtonDown(1))
+        if (controls.Player.RightMouse.triggered)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerMask))
@@ -94,39 +104,44 @@ public class PickUpController : MonoBehaviour
         {
             MoveObject();
         }
+
+        
     }
      
     void ChangeHands()
     {
-        if (heldObjSub == null & heldObj != null)
+        if (radio.activeSelf)
         {
-            heldObjSub = heldObj;
+            if (heldObjSub == null & heldObj != null)
+            {
+                heldObjSub = heldObj;
 
-            heldObjSub.transform.parent = holdAreaLeft;
-            heldObjSub.transform.position = holdAreaLeft.position;
-            heldObjSub.transform.rotation = holdAreaLeft.rotation;
-            heldObjSub.transform.localScale = lastScale;
-            heldObj.GetComponentInChildren<Animator>().enabled = true;
+                heldObjSub.transform.parent = holdAreaLeft;
+                heldObjSub.transform.position = holdAreaLeft.position;
+                heldObjSub.transform.rotation = holdAreaLeft.rotation;
+                heldObjSub.transform.localScale = lastScale;
+                heldObj.GetComponentInChildren<Animator>().enabled = true;
 
-            anim.SetTrigger("isPickUp");
+                anim.SetTrigger("isPickUp");
 
-            heldObj = null;
-        }
-        else if (heldObjSub != null & heldObj == null)
-        {
-            lastScale = heldObjSub.transform.localScale;
+                heldObj = null;
+            }
+            else if (heldObjSub != null & heldObj == null)
+            {
+                lastScale = heldObjSub.transform.localScale;
 
-            heldObj = heldObjSub;
-            
-            heldObj.transform.parent = holdAreaRight;
-            heldObj.transform.position = holdAreaRight.position;
-            heldObj.transform.rotation = holdAreaRight.rotation;
-            heldObj.transform.localScale = new Vector3(2f, 2f, 2f);
-            heldObj.GetComponentInChildren<Animator>().enabled = false;
+                heldObj = heldObjSub;
 
-            anim.SetTrigger("isDroped");
+                heldObj.transform.parent = holdAreaRight;
+                heldObj.transform.position = holdAreaRight.position;
+                heldObj.transform.rotation = holdAreaRight.rotation;
+                heldObj.transform.localScale = new Vector3(2f, 2f, 2f);
+                heldObj.GetComponentInChildren<Animator>().enabled = false;
 
-            heldObjSub = null;
+                anim.SetTrigger("isDroped");
+
+                heldObjSub = null;
+            }
         }
     }
     
@@ -344,12 +359,12 @@ public class PickUpController : MonoBehaviour
         
         if (holdAreaLeft.childCount == 0)
         {
-            if (Input.GetKeyDown("1"))
+            if (controls.Inventory._1.triggered)
             {
                 anim.SetInteger("numInventory", 1);
                 StartCoroutine(RadioDisActive());
             }
-            if (Input.GetKeyDown("2"))
+            if (controls.Inventory._2.triggered)
             {
                 anim.SetInteger("numInventory", 2);
                 StartCoroutine(RadioActive());
@@ -366,5 +381,14 @@ public class PickUpController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.4f);
         radio.SetActive(true);
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
     }
 }
