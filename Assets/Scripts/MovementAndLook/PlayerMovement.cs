@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Grav();
         PlayerMovements();
         Jump();
+        
     }
 
     private void Grav()
@@ -56,39 +57,29 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayerMovements()
     {
-        if (controls.Player.Sprint.triggered)
-        {
-            move = controls.Player.Movement.ReadValue<Vector2>();
+        move = controls.Player.Movement.ReadValue<Vector2>();
 
-            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+        Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
+        if (controls.Player.Sprint.inProgress)
+        {
             controller.Move(movement * sprintSpeed * Time.deltaTime);
-            Invoke("StepsSound", 0.3f);
-
+            if (isGrounded) Invoke("StepsSound", 0.3f);
+            
         } 
-        else if (controls.Player.Crouch.triggered)
+        else if (controls.Player.Crouch.inProgress)
         {
-            move = controls.Player.Movement.ReadValue<Vector2>();
-
-            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * crouchSpeed * Time.deltaTime);
         } 
-        else 
+        else
         {
-            move = controls.Player.Movement.ReadValue<Vector2>();
-
-            Vector3 movement = (move.y * transform.forward) + (move.x * transform.right);
             controller.Move(movement * moveSpeed * Time.deltaTime);
-
-            if (controls.Player.Movement.triggered)
-            {
-                Invoke("StepsSound", 0.5f);
-            }
+            
+            if (isGrounded & (move.x != 0f | move.y != 0f))  Invoke("StepsSound", 0.5f);   
         }
     }
 
     private void StepsSound()
-    {
-        
+    { 
         stepSource.clip = stepsSounds[Random.Range(0, stepsSounds.Count)];
         stepSource.Play();
         CancelInvoke();
@@ -99,8 +90,7 @@ public class PlayerMovement : MonoBehaviour
         if(controls.Player.Jump.triggered && isGrounded) {
             velosity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             CancelInvoke();
-        }
-        
+        } 
     }
 
 

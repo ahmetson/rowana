@@ -881,6 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mouseLook: {fileID: 0}
+  copyMode: {fileID: 0}
   sliderVolume: {fileID: 1923361977}
   sliderSensivity: {fileID: 2040449441}
   sensivity: 20

@@ -1,0 +1,864 @@
+fileFormatVersion: 2
+guid: 91a92a460d086ab478904ec97448cd0d
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Limbs
+    second: {fileID: 2100000, guid: e028b06c0f30e754083efbd51d965e42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plates
+    second: {fileID: 2100000, guid: cef46886d37828e4da5286b29beab7b2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armor
+    second: {fileID: 2100000, guid: 3bd1fb048967f0e468b1257a01b0fc2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: defaultPolygonShader1
+    second: {fileID: 2100000, guid: fa0276d1c9ac19d4ba09f2289384bb1f, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 0
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 1
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 1
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Stay
+      takeName: Take 001
+      internalID: 9067093048684652814
+      firstFrame: 0.96
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 20
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: rex(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Geo
+      parentName: rex(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube25
+      parentName: Geo
+      position: {x: -0.0041365805, y: 0.02192615, z: -0.02578269}
+      rotation: {x: -0.29277915, y: 0.05921805, z: -0.08952579, w: 0.9501362}
+      scale: {x: 0.3746926, y: 0.3746926, z: 0.3746926}
+    - name: pCube24
+      parentName: Geo
+      position: {x: -0.004768755, y: 0.019464254, z: -0.02329573}
+      rotation: {x: 0.6664339, y: -0.106297426, z: -0.12507875, w: 0.72727036}
+      scale: {x: 0.08580561, y: 0.08580561, z: 0.08580561}
+    - name: pCube23
+      parentName: Geo
+      position: {x: -0.0042427685, y: 0.019353421, z: -0.023340335}
+      rotation: {x: 0.68060994, y: 0.05862604, z: -0.009413945, w: 0.730236}
+      scale: {x: 0.08580561, y: 0.08580561, z: 0.08580561}
+    - name: pCube22
+      parentName: Geo
+      position: {x: -0.004357949, y: 0.025410242, z: -0.020270478}
+      rotation: {x: 0.4876827, y: -0.004533251, z: 0.012060549, w: 0.8729259}
+      scale: {x: 0.33980712, y: 0.33980712, z: 0.33980712}
+    - name: pCube17
+      parentName: Geo
+      position: {x: 0.004358029, y: 0.025407063, z: -0.020274233}
+      rotation: {x: 1.4394222e-15, y: 0.8724605, z: 0.48868465, w: 7.3606904e-16}
+      scale: {x: 0.33980712, y: 0.33980712, z: -0.33980712}
+    - name: pCube21
+      parentName: Geo
+      position: {x: 0.004620928, y: 0.01945801, z: -0.023290703}
+      rotation: {x: -0.028923826, y: 0.7370994, z: 0.6725632, w: -0.059216686}
+      scale: {x: 0.08580561, y: 0.08580561, z: -0.08580561}
+    - name: pCube20
+      parentName: Geo
+      position: {x: 0.0040816832, y: 0.019457372, z: -0.023302913}
+      rotation: {x: 0.08573585, y: 0.7330793, z: 0.66620064, w: 0.10686878}
+      scale: {x: 0.08580561, y: 0.08580561, z: -0.08580561}
+    - name: pCylinder3
+      parentName: Geo
+      position: {x: 0.004358029, y: 0.030980282, z: -0.024451915}
+      rotation: {x: 1.1190504e-15, y: 0.968318, z: -0.24972036, w: -3.5182863e-16}
+      scale: {x: 0.3746926, y: 0.3746926, z: -0.3746926}
+    - name: pCube18
+      parentName: Geo
+      position: {x: 0.004358029, y: 0.021980627, z: -0.025783261}
+      rotation: {x: 2.885805e-16, y: 0.9537345, z: -0.30065015, w: -2.6767859e-17}
+      scale: {x: 0.3746926, y: 0.3746926, z: -0.3746926}
+    - name: pCylinder2
+      parentName: Geo
+      position: {x: -0.004358029, y: 0.030980282, z: -0.024451915}
+      rotation: {x: -0.24972036, y: 2.7755573e-16, z: -1.4155344e-15, w: 0.968318}
+      scale: {x: 0.3746926, y: 0.3746926, z: 0.3746926}
+    - name: pCube14
+      parentName: Geo
+      position: {x: -0.0091792215, y: 0.0308264, z: -0.10672261}
+      rotation: {x: -0.00000015410342, y: 0.25084743, z: 0.000000016180659, w: 0.96802664}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Cage_13
+      parentName: pCube14
+      position: {x: -1.2596649e-17, y: 0.000073075294, z: -0.0034575444}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface22
+      parentName: Cage_13
+      position: {x: 1.26287864e-17, y: 0.0019073343, z: 0.00059034344}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface32
+      parentName: Cage_13
+      position: {x: -1.3072129e-17, y: 0.0019073343, z: 0.00059034344}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube13
+      parentName: Geo
+      position: {x: -0.0050517586, y: 0.030525059, z: -0.09909483}
+      rotation: {x: -0.00000010095155, y: 0.24534456, z: 0.0000000066386603, w: 0.96943593}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_1
+      parentName: pCube13
+      position: {x: -5.9674484e-18, y: 0.00062397396, z: -0.0073119965}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper12
+      parentName: Armor_Plates_1
+      position: {x: 3.213749e-20, y: 0.0018052723, z: 0.003361616}
+      rotation: {x: -0.01966026, y: 0, z: -0, w: 0.9998067}
+      scale: {x: 0.5304509, y: 0.8823614, z: 0.4379578}
+    - name: pSphere6
+      parentName: Armor_Plates_1
+      position: {x: 2.5740273e-20, y: -0.00030781823, z: -0.00021335602}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.098841384, y: 0.18699901, z: 0.20136714}
+    - name: Cage_12
+      parentName: pCube13
+      position: {x: -1.2041538e-17, y: 0.0003594279, z: -0.0036262318}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface23
+      parentName: Cage_12
+      position: {x: -0.0014194939, y: -3.008292e-10, z: 0.00030722772}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface31
+      parentName: Cage_12
+      position: {x: 0.0014194939, y: -3.008292e-10, z: 0.00030722772}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube12
+      parentName: Geo
+      position: {x: -0.0013764038, y: 0.030128522, z: -0.09119607}
+      rotation: {x: -0.00000009030807, y: 0.21520609, z: 0.0000000044777204, w: 0.9765687}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_2
+      parentName: pCube12
+      position: {x: -0, y: 0.00067218026, z: -0.0074932626}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper11
+      parentName: Armor_Plates_2
+      position: {x: -7.1983554e-32, y: 0.0023143473, z: 0.0033624934}
+      rotation: {x: -0.01966026, y: 0, z: -0, w: 0.9998067}
+      scale: {x: 0.5304509, y: 1.0381062, z: 0.4379578}
+    - name: pSphere5
+      parentName: Armor_Plates_2
+      position: {x: -6.3974193e-21, y: -0.00032651357, z: -0.00016700744}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.13710257, y: 0.24261178, z: 0.22970507}
+    - name: Cage_11
+      parentName: pCube12
+      position: {x: -5.5511148e-18, y: 0.00034361362, z: -0.0035480303}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface24
+      parentName: Cage_11
+      position: {x: -0.0019133072, y: 1.2860958e-10, z: 0.00030722845}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface33
+      parentName: Cage_11
+      position: {x: 0.0019133072, y: 1.2860958e-10, z: 0.00030722845}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube11
+      parentName: Geo
+      position: {x: 0.0019714586, y: 0.02972901, z: -0.082026295}
+      rotation: {x: -0.00000008252024, y: 0.17267634, z: 0.0000000041021195, w: 0.9849786}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_3
+      parentName: pCube11
+      position: {x: -0, y: 0.0007871377, z: -0.00835599}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper10
+      parentName: Armor_Plates_3
+      position: {x: -4.9303804e-33, y: 0.0028797423, z: 0.0036296176}
+      rotation: {x: -0.019626627, y: 0, z: -0, w: 0.99980736}
+      scale: {x: 0.6717109, y: 1.0381062, z: 0.448098}
+    - name: pSphere4
+      parentName: Armor_Plates_3
+      position: {x: -0, y: -0.00038198434, z: -0.00027338028}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.198144, y: 0.29360297, z: 0.27798358}
+    - name: Cage_10
+      parentName: pCube11
+      position: {x: -4.718448e-18, y: 0.00043676613, z: -0.003434391}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface25
+      parentName: Cage_10
+      position: {x: -0.0025220918, y: -0.00015891569, z: 0.00034483577}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface34
+      parentName: Cage_10
+      position: {x: 0.0025220918, y: -0.00015891569, z: 0.00034483577}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube10
+      parentName: Geo
+      position: {x: 0.0035086183, y: 0.029387204, z: -0.07195688}
+      rotation: {x: -0.00000006458378, y: 0.06765912, z: -3.103924e-11, w: 0.9977085}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_4
+      parentName: pCube10
+      position: {x: -0, y: 0.00082017406, z: -0.008809429}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper9
+      parentName: Armor_Plates_4
+      position: {x: -2.4158864e-32, y: 0.0034848137, z: 0.0034514903}
+      rotation: {x: -0.024194757, y: 0, z: -0, w: 0.9997073}
+      scale: {x: 0.80430925, y: 1.0381062, z: 0.448098}
+    - name: pSphere3
+      parentName: Armor_Plates_4
+      position: {x: -2.4158864e-32, y: -0.00036050915, z: -0.00020050048}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.26982948, y: 0.35621545, z: 0.32990137}
+    - name: Cage_9
+      parentName: pCube10
+      position: {x: -4.163336e-18, y: 0.00020898103, z: -0.0041350373}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface26
+      parentName: Cage_9
+      position: {x: -0.002878727, y: 0.0004106782, z: 0.00034483947}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface35
+      parentName: Cage_9
+      position: {x: 0.002878727, y: 0.0004106782, z: 0.00034483947}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube9
+      parentName: Geo
+      position: {x: 0.0027387317, y: 0.029267143, z: -0.062128205}
+      rotation: {x: -0.000000058588892, y: -0.040719263, z: 1.940954e-10, w: 0.9991706}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_5
+      parentName: pCube9
+      position: {x: -0, y: 0.001054918, z: -0.008183526}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper8
+      parentName: Armor_Plates_5
+      position: {x: 1.0896141e-31, y: 0.0044946386, z: 0.00396451}
+      rotation: {x: -0.06461549, y: 0, z: -0, w: 0.99791026}
+      scale: {x: 1.1136036, y: 1.358318, z: 0.6402896}
+    - name: pSphere2
+      parentName: Armor_Plates_5
+      position: {x: 1.0896141e-31, y: -0.0010663046, z: -0.00058704376}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.33562517, y: 0.39971653, z: 0.37018898}
+    - name: Cage_8
+      parentName: pCube9
+      position: {x: -3.8857806e-18, y: 0.0007846904, z: -0.0038764055}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface27
+      parentName: Cage_8
+      position: {x: -0.004506666, y: -0.00004497187, z: 0.00084164913}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface36
+      parentName: Cage_8
+      position: {x: 0.004506666, y: -0.00004497187, z: 0.00084164913}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube8
+      parentName: Geo
+      position: {x: 0.0013128957, y: 0.029267143, z: -0.053472575}
+      rotation: {x: -0.000000006322556, y: -0.08340813, z: -3.5948078e-11, w: 0.99651545}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_6
+      parentName: pCube8
+      position: {x: -0, y: 0.0009729833, z: -0.0068815853}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper7
+      parentName: Armor_Plates_6
+      position: {x: 3.6238296e-32, y: 0.006077326, z: 0.003415246}
+      rotation: {x: -0.09488811, y: 0, z: -0, w: 0.9954879}
+      scale: {x: 1.4255381, y: 1.7388, z: 0.8196429}
+    - name: pSphere1
+      parentName: Armor_Plates_6
+      position: {x: 3.6238296e-32, y: -0.0009843698, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.43047953, y: 0.58143127, z: 0.4589883}
+    - name: Cage_7
+      parentName: pCube8
+      position: {x: -2.7755574e-18, y: 0.0018407225, z: -0.0020743308}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface28
+      parentName: Cage_7
+      position: {x: -0.0060425135, y: -0.001101004, z: -0.0038544333}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface37
+      parentName: Cage_7
+      position: {x: 0.0060425135, y: -0.001101004, z: -0.0038544333}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube7
+      parentName: Geo
+      position: {x: 0.0004223057, y: 0.028836025, z: -0.046435457}
+      rotation: {x: -4.6968557e-10, y: -0.056615923, z: -2.8929636e-11, w: 0.99839604}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_7
+      parentName: pCube7
+      position: {x: -5.551115e-19, y: 0.00044448447, z: -0.0025066994}
+      rotation: {x: 0.11004651, y: 0.0054042307, z: 0.011114069, w: 0.99384964}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper6
+      parentName: Armor_Plates_7
+      position: {x: 5.551115e-19, y: 0.008258433, z: 0.00017746448}
+      rotation: {x: -0.06812127, y: 0, z: -0, w: 0.997677}
+      scale: {x: 1.8493376, y: 2.2557294, z: 0.98222727}
+    - name: polySurface19
+      parentName: Armor_Plates_7
+      position: {x: 5.551115e-19, y: -0.009202607, z: 0.004474786}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.92102623, y: 0.92102623, z: 0.92102623}
+    - name: polySurface20
+      parentName: Armor_Plates_7
+      position: {x: -0.0069208955, y: -0.0017832855, z: 0.0040763286}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.92102623, y: 0.92102623, z: 0.92102623}
+    - name: polySurface21
+      parentName: Armor_Plates_7
+      position: {x: 0.0069779297, y: -0.0017832855, z: 0.0044995784}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.92102623, y: 0.92102623, z: 0.92102623}
+    - name: Cage_14
+      parentName: pCube7
+      position: {x: 6.1876677e-32, y: -0.029424347, z: 0.046459403}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface29
+      parentName: Cage_14
+      position: {x: -0.006117621, y: 0.032430146, z: -0.05065314}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface38
+      parentName: Cage_14
+      position: {x: 0.006117621, y: 0.032430146, z: -0.05065314}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube6
+      parentName: Geo
+      position: {x: 9.860761e-34, y: 0.028859867, z: -0.037507005}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_8
+      parentName: pCube6
+      position: {x: -1.110223e-18, y: 0.0003397072, z: -0.0038558184}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper5
+      parentName: Armor_Plates_8
+      position: {x: 1.110223e-18, y: 0.009057097, z: 0.0009460115}
+      rotation: {x: -0.01314046, y: 0, z: -0, w: 0.9999137}
+      scale: {x: 1.9575112, y: 2.387674, z: 1.0396808}
+    - name: polySurface16
+      parentName: Armor_Plates_8
+      position: {x: 1.110223e-18, y: -0.0097033335, z: 0.004854145}
+      rotation: {x: 0.000000047468617, y: -0, z: -0, w: 1}
+      scale: {x: 0.87174267, y: 0.9153238, z: 0.9153238}
+    - name: polySurface17
+      parentName: Armor_Plates_8
+      position: {x: -0.006375007, y: -0.0015179734, z: 0.0027315544}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.87174267, y: 0.9153238, z: 0.9153238}
+    - name: polySurface18
+      parentName: Armor_Plates_8
+      position: {x: 0.005797304, y: -0.0014902333, z: 0.0044148606}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.87174267, y: 0.9153238, z: 0.9153238}
+    - name: Cage_6
+      parentName: pCube6
+      position: {x: -1.6653345e-18, y: 0.008125967, z: -0.0049562277}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface30
+      parentName: Cage_6
+      position: {x: -0.006393914, y: -0.0047968347, z: 0.00011629509}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface39
+      parentName: Cage_6
+      position: {x: 0.006393914, y: -0.0047968347, z: 0.00011629509}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube5
+      parentName: Geo
+      position: {x: -3.6987853e-20, y: 0.028949479, z: -0.02882692}
+      rotation: {x: 2.7755576e-17, y: -2.7755576e-17, z: -1.5543122e-15, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_9
+      parentName: pCube5
+      position: {x: 3.8857806e-18, y: 0.0009017716, z: -0.0033254947}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper4
+      parentName: Armor_Plates_9
+      position: {x: -3.8857806e-18, y: 0.008237803, z: 0.0006530475}
+      rotation: {x: 0.065967105, y: -0, z: -0, w: 0.9978218}
+      scale: {x: 1.6643628, y: 2.0301065, z: 0.8839827}
+    - name: polySurface13
+      parentName: Armor_Plates_9
+      position: {x: -3.8857806e-18, y: -0.008834098, z: 0.0060276585}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.85948616, y: 0.90175915, z: 0.90175915}
+    - name: polySurface14
+      parentName: Armor_Plates_9
+      position: {x: -0.005298141, y: -0.0011341026, z: 0.0052375393}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.85948616, y: 0.90175915, z: 0.90175915}
+    - name: polySurface15
+      parentName: Armor_Plates_9
+      position: {x: 0.005298141, y: -0.0011341026, z: 0.0052375393}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.85948616, y: 0.90175915, z: 0.90175915}
+    - name: Cage_5
+      parentName: pCube5
+      position: {x: -1.6653345e-18, y: 0.0021722913, z: -0.0032532858}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube38
+      parentName: Cage_5
+      position: {x: -0.002716025, y: -0.00074312254, z: 0.0025890614}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube43
+      parentName: Cage_5
+      position: {x: 0.002716025, y: -0.00074312254, z: 0.0025890614}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube4
+      parentName: Geo
+      position: {x: -9.30344e-19, y: 0.02977407, z: -0.02140186}
+      rotation: {x: 0.04888677, y: -1.9428902e-16, z: -1.5543122e-15, w: 0.99880433}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_10
+      parentName: pCube4
+      position: {x: -0.0000000020884527, y: 0.00025579505, z: -0.0024740621}
+      rotation: {x: 0.091821566, y: -0.0055647865, z: -0.009698365, w: 0.9957127}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper3
+      parentName: Armor_Plates_10
+      position: {x: 0.0000000020884527, y: 0.006765359, z: -0.00037266014}
+      rotation: {x: 0.10253632, y: -0, z: -0, w: 0.9947293}
+      scale: {x: 1.1595638, y: 1.3183262, z: 0.86284053}
+    - name: polySurface10
+      parentName: Armor_Plates_10
+      position: {x: 0.0000000020884527, y: -0.007051968, z: 0.0040463405}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8759606, y: 0.92192024, z: 0.92192024}
+    - name: polySurface11
+      parentName: Armor_Plates_10
+      position: {x: -0.003956651, y: -0.00050207536, z: 0.0038674127}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8759606, y: 0.92192024, z: 0.92192024}
+    - name: polySurface12
+      parentName: Armor_Plates_10
+      position: {x: 0.003956655, y: -0.00050207536, z: 0.0038674127}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.8759606, y: 0.92192024, z: 0.92192024}
+    - name: Cage_4
+      parentName: pCube4
+      position: {x: -1.110223e-18, y: 0.0051318193, z: -0.0030220111}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube39
+      parentName: Cage_4
+      position: {x: -0.0008401473, y: -0.004032882, z: 0.0024408537}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube44
+      parentName: Cage_4
+      position: {x: 0.0008401473, y: -0.004032882, z: 0.0024408537}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube3
+      parentName: Geo
+      position: {x: 5.650698e-19, y: 0.02965907, z: -0.015782986}
+      rotation: {x: 0.5491592, y: 7.7900953e-16, z: -1.7334803e-15, w: 0.83571774}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_11
+      parentName: pCube3
+      position: {x: -0, y: -0.000067744135, z: -0.0016979825}
+      rotation: {x: -0.40857574, y: 0.64036953, z: 0.27686453, w: 0.5885056}
+      scale: {x: 1, y: 0.8989889, z: 1}
+    - name: polySurface9
+      parentName: Armor_Plates_11
+      position: {x: 0.002515923, y: 0.0003724269, z: 0.002938423}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.88070875, y: 1.0304044, z: 0.92632216}
+    - name: polySurface8
+      parentName: Armor_Plates_11
+      position: {x: -0.002515923, y: 0.0003724269, z: 0.002938423}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.88070875, y: 1.0304044, z: 0.92632216}
+    - name: pCube1_Upper2
+      parentName: Armor_Plates_11
+      position: {x: 1.7256332e-32, y: 0.006456775, z: 0.00044443607}
+      rotation: {x: 0.046082962, y: -0, z: -0, w: 0.9989376}
+      scale: {x: 0.8795727, y: 1.1234583, z: 0.65449697}
+    - name: polySurface7
+      parentName: Armor_Plates_11
+      position: {x: 0.000013307361, y: -0.00540142, z: 0.0022492907}
+      rotation: {x: -0.005711647, y: 0, z: -0, w: 0.9999837}
+      scale: {x: 0.88070875, y: 1.0308146, z: 0.92595357}
+    - name: Cage_3
+      parentName: pCube3
+      position: {x: -8.3266725e-19, y: 0.0013633132, z: -0.0018094683}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube37
+      parentName: Cage_3
+      position: {x: 0.00025731715, y: -0.00049741473, z: 0.001993545}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube42
+      parentName: Cage_3
+      position: {x: -0.00025731715, y: -0.00049741473, z: 0.001993545}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube2
+      parentName: Geo
+      position: {x: 6.126302e-19, y: 0.030552406, z: -0.0107494}
+      rotation: {x: 0.095029935, y: -5.2735594e-16, z: -1.5543121e-15, w: 0.9954744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_12
+      parentName: pCube2
+      position: {x: 2.7755575e-19, y: 0.00009740078, z: -0.0014201648}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper1
+      parentName: Armor_Plates_12
+      position: {x: -2.7755575e-19, y: 0.00458948, z: -0.00031781016}
+      rotation: {x: -0.120754085, y: 0, z: -0, w: 0.99268246}
+      scale: {x: 0.8795727, y: 1, z: 0.65449697}
+    - name: polySurface4
+      parentName: Armor_Plates_12
+      position: {x: -2.7755575e-19, y: -0.0046651275, z: 0.0024919196}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9474007, y: 0.96187055, z: 0.96187055}
+    - name: polySurface5
+      parentName: Armor_Plates_12
+      position: {x: -0.002484769, y: -0.00009735066, z: 0.0023061654}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9474007, y: 0.96187055, z: 0.96187055}
+    - name: polySurface6
+      parentName: Armor_Plates_12
+      position: {x: 0.002484769, y: -0.00009735066, z: 0.0023061654}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9474007, y: 0.96187055, z: 0.96187055}
+    - name: Cage_2
+      parentName: pCube2
+      position: {x: -5.551115e-19, y: 0.000978701, z: -0.0014907444}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube36
+      parentName: Cage_2
+      position: {x: 0.00019402332, y: -0.0005298961, z: 0.0012892974}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube41
+      parentName: Cage_2
+      position: {x: -0.00019402332, y: -0.0005298961, z: 0.0012892974}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: pCube1
+      parentName: Geo
+      position: {x: 2.2692447e-18, y: 0.03032361, z: -0.00633507}
+      rotation: {x: 0.095029935, y: -2.7755576e-16, z: -1.8873791e-15, w: 0.9954744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armor_Plates_13
+      parentName: pCube1
+      position: {x: -0, y: 0.00028293714, z: -0.001679907}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube1_Upper
+      parentName: Armor_Plates_13
+      position: {x: -6.601397e-33, y: 0.004366301, z: 0.002281723}
+      rotation: {x: 0.0006887479, y: -0, z: -0, w: 0.99999976}
+      scale: {x: 0.8368265, y: 1, z: 1}
+    - name: polySurface_R
+      parentName: Armor_Plates_13
+      position: {x: 0.002694858, y: -0.0008392105, z: 0.002811613}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface_L
+      parentName: Armor_Plates_13
+      position: {x: -0.0026948573, y: -0.0008392105, z: 0.002811613}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: polySurface_B
+      parentName: Armor_Plates_13
+      position: {x: -7.888609e-33, y: -0.00478849, z: 0.002181434}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.90813965, y: 0.93546754, z: 0.90813965}
+    - name: Cage_1
+      parentName: pCube1
+      position: {x: -7.888609e-33, y: -0.013993267, z: 0.001787302}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube35
+      parentName: Cage_1
+      position: {x: 0.00019402332, y: 0.013971534, z: -0.0009952288}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCube40
+      parentName: Cage_1
+      position: {x: -0.00019402332, y: 0.013971534, z: -0.0009952288}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: -1}
+    - name: Jaw_2
+      parentName: Geo
+      position: {x: 7.2540654e-18, y: 0.026993262, z: -0.0026273066}
+      rotation: {x: 0.095029935, y: 4.440892e-16, z: -1.1449175e-16, w: 0.9954744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Jaw_1
+      parentName: Geo
+      position: {x: 5.110142e-18, y: 0.026703592, z: -0.0027751077}
+      rotation: {x: 0.095029935, y: 4.440892e-16, z: -1.1449175e-16, w: 0.9954744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Head
+      parentName: Geo
+      position: {x: 1.1416261e-18, y: 0.02901363, z: 0.0031956988}
+      rotation: {x: 0.095029935, y: 4.1633363e-16, z: -6.1062266e-16, w: 0.9954744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: pCylinder4
+      parentName: Geo
+      position: {x: -0.010058043, y: 0.03173617, z: -0.044494767}
+      rotation: {x: -0.4028354, y: 1.9428903e-16, z: 1.0061396e-16, w: 0.9152725}
+      scale: {x: 0.7944222, y: 0.7944222, z: 0.7944222}
+    - name: pCube19
+      parentName: Geo
+      position: {x: -0.010058043, y: 0.0019345306, z: -0.035226062}
+      rotation: {x: 0.0000000013593253, y: -2.459144e-14, z: 2.1146279e-13, w: 1}
+      scale: {x: 0.4103662, y: 0.4103662, z: 0.4103662}
+    - name: pCube26
+      parentName: Geo
+      position: {x: -0.010058043, y: 0.010563106, z: -0.037360854}
+      rotation: {x: -0.27563736, y: 1.110223e-16, z: 6.938894e-18, w: 0.9612617}
+      scale: {x: 0.7944222, y: 0.7944222, z: 0.7944222}
+    - name: pCube28
+      parentName: Geo
+      position: {x: -0.011141709, y: 0.001417613, z: -0.034055136}
+      rotation: {x: 0.000000001333095, y: -0.19550113, z: -2.6574967e-10, w: 0.9807035}
+      scale: {x: 0.3048449, y: 0.3048449, z: 0.3048449}
+    - name: pCube27
+      parentName: Geo
+      position: {x: -0.010058043, y: 0.023364127, z: -0.032326043}
+      rotation: {x: 0.22657928, y: -2.775558e-17, z: 5.551116e-17, w: 0.97399276}
+      scale: {x: 0.72045815, y: 0.72045815, z: 0.72045815}
+    - name: pCube29
+      parentName: Geo
+      position: {x: -0.008638185, y: 0.001417613, z: -0.03408105}
+      rotation: {x: 0.0000000013330957, y: 0.19549781, z: 2.6574518e-10, w: 0.9807041}
+      scale: {x: 0.3048449, y: 0.3048449, z: 0.3048449}
+    - name: pCube34
+      parentName: Geo
+      position: {x: 0.008638334, y: 0.0014181829, z: -0.056209683}
+      rotation: {x: 0.00020243738, y: 0.98070884, z: -0.000040068182, w: 0.19547427}
+      scale: {x: 0.3048449, y: 0.3048449, z: -0.3048449}
+    - name: pCube33
+      parentName: Geo
+      position: {x: 0.010058041, y: 0.017610284, z: -0.040163074}
+      rotation: {x: -0.00000002227121, y: 0.82411057, z: 0.566429, w: 0.00000014627042}
+      scale: {x: 0.72045815, y: 0.72045815, z: -0.72045815}
+    - name: pCube32
+      parentName: Geo
+      position: {x: 0.01114186, y: 0.0014171496, z: -0.056183886}
+      rotation: {x: 0.00020232737, y: 0.98069876, z: 0.000040620092, w: -0.19552468}
+      scale: {x: 0.3048449, y: 0.3048449, z: -0.3048449}
+    - name: pCube31
+      parentName: Geo
+      position: {x: 0.010058043, y: 0.011727912, z: -0.052552413}
+      rotation: {x: 0.0000000051928324, y: 0.9989788, z: 0.045181666, w: 2.348606e-10}
+      scale: {x: 0.7944222, y: 0.7944222, z: -0.7944222}
+    - name: pCube30
+      parentName: Geo
+      position: {x: 0.01005835, y: 0.0019345151, z: -0.057354763}
+      rotation: {x: 0.00020636444, y: 1, z: 0.00000028102636, w: -0.000023968392}
+      scale: {x: 0.4103662, y: 0.4103662, z: -0.4103662}
+    - name: pCylinder5
+      parentName: Geo
+      position: {x: 0.010058043, y: 0.031731434, z: -0.04449547}
+      rotation: {x: 0.00000007485259, y: 0.9968518, z: -0.079287566, w: 0.00000012762497}
+      scale: {x: 0.7944222, y: 0.7944222, z: -0.7944222}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: pCube30
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

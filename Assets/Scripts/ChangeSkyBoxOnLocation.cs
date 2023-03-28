@@ -24,7 +24,7 @@ public class ChangeSkyBoxOnLocation : MonoBehaviour
             if (GetComponent<Collider>().CompareTag("Swamp"))
             {
                 RenderSettings.skybox = dark;
-                globalLignt.intensity = 0.15f;
+                globalLignt.intensity = 0.03f;
             }
             if (GetComponent<Collider>().CompareTag("Forest"))
             {

@@ -9,6 +9,9 @@ TagManager:
   - Swamp
   - Flat
   - Forest
+  - musicA
+  - musicB
+  - musicC
   layers:
   - Default
   - TransparentFX

@@ -120,7 +120,7 @@ public class PickUpController : MonoBehaviour
                 heldObjSub.transform.position = holdAreaLeft.position;
                 heldObjSub.transform.rotation = holdAreaLeft.rotation;
                 heldObjSub.transform.localScale = lastScale;
-                heldObj.GetComponentInChildren<Animator>().enabled = true;
+                heldObj.GetComponentInChildren<Animator>().SetBool("Spin", true);
 
                 anim.SetTrigger("isPickUp");
 
@@ -136,7 +136,7 @@ public class PickUpController : MonoBehaviour
                 heldObj.transform.position = holdAreaRight.position;
                 heldObj.transform.rotation = holdAreaRight.rotation;
                 heldObj.transform.localScale = new Vector3(2f, 2f, 2f);
-                heldObj.GetComponentInChildren<Animator>().enabled = false;
+                heldObj.GetComponentInChildren<Animator>().SetBool("Spin", false);
 
                 anim.SetTrigger("isDroped");
 
@@ -183,6 +183,7 @@ public class PickUpController : MonoBehaviour
 
         heldObjRBSub.transform.parent = holdAreaLeft;
 
+        pickObjSub.GetComponentInChildren<Animator>().SetBool("Spin", true);
         heldObjSub = pickObjSub;
 
         anim.SetTrigger("isPickUp");
@@ -206,6 +207,8 @@ public class PickUpController : MonoBehaviour
         dividerSources.Mute(heldObjSub.GetComponent<Collider>());
 
         heldObjRBSub.transform.parent = null;
+
+        heldObjSub.GetComponentInChildren<Animator>().SetBool("Spin", false);
         heldObjSub = null;
 
         anim.SetTrigger("isDroped");
