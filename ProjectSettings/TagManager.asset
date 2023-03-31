@@ -12,6 +12,12 @@ TagManager:
   - musicA
   - musicB
   - musicC
+  - JawCollider
+  - HP
+  - FireCamp
+  - Water
+  - Fog
+  - Rain
   layers:
   - Default
   - TransparentFX

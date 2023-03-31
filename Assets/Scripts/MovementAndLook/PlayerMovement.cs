@@ -11,11 +11,11 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed = 5f;
     private float sprintSpeed = 10f;
     private float crouchSpeed = 3f;
-    private Vector3 velosity;
+    [HideInInspector] public Vector3 velosity;
     private float gravity = -9.81f;
     private Vector2 move;
     private float jumpHeight = 2.4f;
-    private CharacterController controller;
+    [HideInInspector] public CharacterController controller;
 
     public Transform ground;
     public float distanceToGround = 0.4f;
