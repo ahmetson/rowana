@@ -53,6 +53,8 @@ public class VictoryScript : MonoBehaviour
         if (!hasRun & successProgress == 3)
         {
             victoryUI.SetActive(true);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None; 
             hasRun = true;
         }
     }

@@ -3488,7 +3488,7 @@ GameObject:
   - component: {fileID: 386012456}
   - component: {fileID: 386012455}
   m_Layer: 5
-  m_Name: VictoryText
+  m_Name: LoseText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32023,6 +32023,10 @@ PrefabInstance:
       propertyPath: buttons.Array.data[15]
       value: 
       objectReference: {fileID: 2029642056}
+    - target: {fileID: 319710506543220029, guid: 1c34f92e317839347a7ba97dfce91fc0, type: 3}
+      propertyPath: mouseSensitivity
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 319710506562480619, guid: 1c34f92e317839347a7ba97dfce91fc0, type: 3}
       propertyPath: m_Name
       value: 'FirstPersonPlayer '

@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class MouseLook : MonoBehaviour
 {
     private InputMaster controls;
-    public float mouseSensitivity = 50f;
+    [HideInInspector] public float mouseSensitivity;
     private Vector2 mouseLook;
     private Camera cam;
     public float xRotation = 0f;
@@ -35,7 +35,7 @@ public class MouseLook : MonoBehaviour
     {
         Look();
         StartCoroutine(WaitForFunction());
-        
+        Debug.Log(mouseSensitivity);
     }
     private IEnumerator WaitForFunction()
     {

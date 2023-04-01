@@ -26,6 +26,7 @@ public class CopyMode : MonoBehaviour
     {
         pickUpController = FindObjectOfType<PickUpController>();
         cameraMove = FindObjectOfType<MouseLook>();
+        menuScript = FindObjectOfType<MenuScript>();
 
         ui.SetActive(false);
 
@@ -65,6 +66,7 @@ public class CopyMode : MonoBehaviour
                     ui.SetActive(false);
                     menuScript.BackToGame();
                     menuScript.enabled = true;
+                    cameraMove.mouseSensitivity = menuScript.sensivity;
                 }
             }
         }

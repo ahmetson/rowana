@@ -13,7 +13,7 @@ public class MenuScript : MonoBehaviour
     public Slider sliderVolume;
     public Slider sliderSensivity;
 
-    public float sensivity;
+    [HideInInspector] public float sensivity;
 
     public GameObject canvas;
     public GameObject crossHair;
@@ -24,22 +24,22 @@ public class MenuScript : MonoBehaviour
     private void Awake()
     {
         controls = new InputMaster();
+
         mouseLook = FindObjectOfType<MouseLook>();
+        copyMode = FindObjectOfType<CopyMode>();
     }
 
     private void Start()
     {
         if (!PlayerPrefs.HasKey("globalVolume"))
         {
-            PlayerPrefs.SetFloat("globalVolume", 1);
-        } else
+            PlayerPrefs.SetFloat("globalVolume", 20);
+        }
+        else if (!PlayerPrefs.HasKey("mouseSensivity"))
         {
-            Load();
-        }        
-        if (!PlayerPrefs.HasKey("mouseSensivity"))
-        {
-            PlayerPrefs.SetFloat("mouseSensivity", 1);
-        } else
+            PlayerPrefs.SetFloat("mouseSensivity", 20);
+        }
+        else
         {
             Load();
         }
@@ -48,25 +48,28 @@ public class MenuScript : MonoBehaviour
     {
         if (controls.Menu.Escape.triggered)
         {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            canvas.SetActive(true);
-            crossHair.SetActive(false);
-            mouseLook.mouseSensitivity = 0f;
-            copyMode.enabled = false;
-            
+            PauseMenu();
         }
-        
+    }
+
+    public void PauseMenu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        canvas.SetActive(true);
+        crossHair.SetActive(false);
+        mouseLook.mouseSensitivity = 0f;
+        copyMode.enabled = false;
     }
 
     public void PlayTutorial()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void PlayLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(2);
     }
 
     public void BackToGame()
@@ -75,9 +78,8 @@ public class MenuScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         mouseLook.mouseSensitivity = sensivity;
         copyMode.enabled = true;
-        
     }
- 
+
     public void BackToMenu()
     {
         SceneManager.LoadScene(0);
@@ -90,24 +92,19 @@ public class MenuScript : MonoBehaviour
     public void SetMouseSensivity()
     {
         sensivity = sliderSensivity.value;
-        Save();
+        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value);
     }
 
     public void SetVolume()
     {
         AudioListener.volume = sliderVolume.value;
-        Save();
+        PlayerPrefs.SetFloat("globalVolume", sliderVolume.value);
     }
 
     private void Load()
     {
         sliderVolume.value = PlayerPrefs.GetFloat("globalVolume");
         sliderSensivity.value = PlayerPrefs.GetFloat("mouseSensivity");
-    }   
-    private void Save()
-    {
-        PlayerPrefs.SetFloat("globalVolume", sliderVolume.value);
-        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value);
     }
 
     private void OnEnable()

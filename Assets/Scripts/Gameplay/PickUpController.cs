@@ -9,61 +9,50 @@ using UnityEngine.InputSystem;
 public class PickUpController : MonoBehaviour
 {
     [Header("Pickup Settings")]
-    [SerializeField] public Transform holdAreaRight;
-    [SerializeField] public Transform holdAreaLeft;
-
-    [SerializeField] public GameObject platformOne;
-
-    [SerializeField] public GameObject platformTwo;
-    [SerializeField] public GameObject platformTwoSub;
-
-    [SerializeField] public GameObject platformThree;
-    [SerializeField] public GameObject platformThreeSub1;
-    [SerializeField] public GameObject platformThreeSub2;
-
-    public Animator anim;
-
-    public GameObject heldObj;
-    public GameObject heldObjSub;
-    public GameObject radio;
-
+    [HideInInspector] public GameObject holderUnderMap;
+    [HideInInspector] public GameObject heldObj;
+    [HideInInspector] public GameObject heldObjSub;
+    [HideInInspector] public Transform holdAreaRight;
+    [HideInInspector] public Transform holdAreaLeft;
+    
+    [Header("Vars")]
     private Rigidbody heldObjRB;
     private Rigidbody heldObjRBSub;
-
     private Vector3 lastScale;
 
+    [Header("Scripts And Modules")]
     private CopyMode copyScript;
     private DividerSources dividerSources;
-
-    public InputMaster controls;
+    private InputMaster controls;
+    private Animator anim;
 
     [Header("Physics Parameters")]
     [SerializeField] private float pickupRange = 5.0f;
     [SerializeField] private float pickupForce = 150.0f;
+
+    [Header("Layers")]
     [SerializeField] private LayerMask layerMask;
     [SerializeField] private LayerMask layerPlatform;
 
-    private void Start()
-    {
-        copyScript = FindObjectOfType<CopyMode>();
-        dividerSources = FindObjectOfType<DividerSources>();
-
-        
-
-    }
+    [Header("Objects")]
+    [SerializeField] public GameObject radio;
 
     private void Awake()
     {
         controls = new InputMaster();
+
+        copyScript = FindObjectOfType<CopyMode>();
+        dividerSources = FindObjectOfType<DividerSources>();
+
+        anim = GetComponentInChildren<Animator>();
+
+        holderUnderMap = GameObject.FindWithTag("HolderUnderMap");
+        holdAreaLeft = GameObject.FindWithTag("HoldAreaLeft").transform;
+        holdAreaRight = radio.GetComponentInChildren<Transform>();
     }
 
     private void Update()
     {
-
-        //UnMuteCrystal();
-        //CheckLightFirst();
-        //CheckLightSecond();
-        //CheckLightThird();
         Swap();
         if (controls.Player.LeftMouse.triggered)
         {
@@ -77,7 +66,7 @@ public class PickUpController : MonoBehaviour
             }
             else if (heldObjSub != null & (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform)))
             {
-                
+
                 DropLeftObjectAtPlatform(heldObjSub.transform.gameObject);
             }
             else if (heldObjSub != null)
@@ -85,12 +74,12 @@ public class PickUpController : MonoBehaviour
                 DropLeftObject(heldObjSub.transform.gameObject);
             }
         }
-        
+
         if (controls.Player.Swap.triggered) //Bind Swap
         {
             ChangeHands();
         }
-        
+
         if (controls.Player.RightMouse.triggered)
         {
             RaycastHit hit;
@@ -105,9 +94,9 @@ public class PickUpController : MonoBehaviour
             MoveObject();
         }
 
-        
+
     }
-     
+
     void ChangeHands()
     {
         if (radio.activeSelf)
@@ -144,7 +133,7 @@ public class PickUpController : MonoBehaviour
             }
         }
     }
-    
+
     void MoveObject()
     {
         if (holdAreaLeft.childCount > 0)
@@ -154,7 +143,7 @@ public class PickUpController : MonoBehaviour
             if (Vector3.Distance(heldObjSub.transform.position, holdAreaLeft.position) > 0.1f)
             {
                 Vector3 moveDirection = (holdAreaLeft.position - heldObjSub.transform.position);
-                
+
                 heldObjRBSub.AddForce(moveDirection * pickupForce);
             }
         }
@@ -212,8 +201,8 @@ public class PickUpController : MonoBehaviour
         heldObjSub = null;
 
         anim.SetTrigger("isDroped");
-        
-        
+
+
     }
 
     void DropLeftObjectAtPlatform(GameObject pickObj)
@@ -223,8 +212,6 @@ public class PickUpController : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickupRange, layerPlatform))
             {
-
-
                 if (hit.collider & hit.transform.childCount == 0)
                 {
                     heldObjRBSub = pickObj.GetComponent<Rigidbody>();
@@ -258,108 +245,9 @@ public class PickUpController : MonoBehaviour
         }
     }
 
-    public void CheckLightFirst()
-    {
-        float angle = platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle;
-        float timer = 10f;
-
-        if (platformOne.transform.childCount > 0)
-        {
-            
-
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
-            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-
-                //platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle ++;
-                //yield return new WaitForSeconds(1f);
-            
-            
-
-        }
-        if (platformOne.transform.childCount == 0)
-        {
-            
-
-            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
-            platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-
-                //platformOne.transform.parent.GetComponentInChildren<Light>().spotAngle --;
-                //yield return new WaitForSeconds(1f);
-            
-        }
-    }
-
-    public void CheckLightSecond()
-    {
-
-        float angle = platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle;
-        float timer = 10f;
-        
-
-        if (platformTwo.transform.childCount > 0 & platformTwoSub.transform.childCount > 0)
-        {
-            
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-
-        else if (platformTwo.transform.childCount > 0 | platformTwoSub.transform.childCount > 0)
-        {
-            
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-
-        if (platformTwo.transform.childCount == 0 & platformTwoSub.transform.childCount == 0)
-        {
-            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
-            platformTwo.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-
-
-    }
-
-    public void CheckLightThird()
-    {
-        float angle = platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle;
-        float timer = 10f;
-
-        if (platformThree.transform.childCount > 0 & platformThreeSub1.transform.childCount > 0 & platformThreeSub2.transform.childCount > 0)
-        {
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 90f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-        else if (platformThree.transform.childCount == 0 & platformThreeSub1.transform.childCount == 0 & platformThreeSub2.transform.childCount == 0)
-        {
-            angle = Mathf.Min(angle - Time.deltaTime * timer, 1f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-        else if (platformThree.transform.childCount > 0 & platformThreeSub1.transform.childCount > 0)
-        {
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-        else if (platformThreeSub1.transform.childCount > 0 & platformThreeSub2.transform.childCount > 0)
-        {
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-        else if (platformThreeSub2.transform.childCount > 0 & platformThree.transform.childCount > 0)
-        {
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 60f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-
-        else if (platformThree.transform.childCount > 0 | platformThreeSub1.transform.childCount > 0 | platformThreeSub2.transform.childCount > 0)
-        {
-            angle = Mathf.Min(angle + Time.deltaTime * timer, 30f);
-            platformThree.transform.parent.GetComponentInChildren<Light>().spotAngle = angle;
-        }
-    }
-
     public void Swap()
     {
-        
+
         if (holdAreaLeft.childCount == 0)
         {
             if (controls.Inventory._1.triggered)
@@ -372,18 +260,41 @@ public class PickUpController : MonoBehaviour
                 anim.SetInteger("numInventory", 2);
                 StartCoroutine(RadioActive());
             }
-            
+
         }
     }
     IEnumerator RadioDisActive()
     {
         yield return new WaitForSeconds(0.3f);
-        radio.SetActive(false);
+        if (radio.GetComponentInChildren<Rigidbody>())
+        {
+            GameObject crystal = radio.GetComponentInChildren<Rigidbody>().gameObject;
+            crystal.transform.parent = holderUnderMap.transform;
+            crystal.transform.position = holderUnderMap.transform.position;
+
+            radio.SetActive(false);
+        }
+        else
+        {
+            radio.SetActive(false);
+        }
     }
     IEnumerator RadioActive()
     {
         yield return new WaitForSeconds(0.4f);
-        radio.SetActive(true);
+        if (holderUnderMap.GetComponentInChildren<Rigidbody>())
+        {
+            radio.SetActive(true);
+
+            GameObject crystal = holderUnderMap.GetComponentInChildren<Rigidbody>().gameObject;
+            crystal.transform.parent = holdAreaRight;
+            crystal.transform.position = holdAreaRight.position;
+            crystal.transform.rotation = holdAreaRight.rotation;
+        }
+        else
+        {
+            radio.SetActive(true);
+        }
     }
     private void OnEnable()
     {

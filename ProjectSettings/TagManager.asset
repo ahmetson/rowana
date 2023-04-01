@@ -18,6 +18,11 @@ TagManager:
   - Water
   - Fog
   - Rain
+  - Crystal
+  - HolderUnderMap
+  - HoldAreaLeft
+  - HoldAreaRight
+  - Radio
   layers:
   - Default
   - TransparentFX
