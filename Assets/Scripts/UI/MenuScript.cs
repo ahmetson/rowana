@@ -11,9 +11,9 @@ public class MenuScript : MonoBehaviour
     public CopyMode copyMode;
 
     public Slider sliderVolume;
-    public Slider sliderSensivity;
+    public Slider sliderSensitivity;
 
-    [HideInInspector] public float sensivity;
+    [HideInInspector] public float sensitivity;
 
     public GameObject canvas;
     public GameObject crossHair;
@@ -35,9 +35,9 @@ public class MenuScript : MonoBehaviour
         {
             PlayerPrefs.SetFloat("globalVolume", 20);
         }
-        else if (!PlayerPrefs.HasKey("mouseSensivity"))
+        else if (!PlayerPrefs.HasKey("mouseSensitivity"))
         {
-            PlayerPrefs.SetFloat("mouseSensivity", 20);
+            PlayerPrefs.SetFloat("mouseSensitivity", 20);
         }
         else
         {
@@ -76,7 +76,7 @@ public class MenuScript : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        mouseLook.mouseSensitivity = sensivity;
+        mouseLook.mouseSensitivity = sensitivity;
         copyMode.enabled = true;
     }
 
@@ -91,8 +91,9 @@ public class MenuScript : MonoBehaviour
 
     public void SetMouseSensivity()
     {
-        sensivity = sliderSensivity.value;
-        PlayerPrefs.SetFloat("mouseSensivity", sliderSensivity.value);
+        sensitivity = sliderSensitivity.value;
+        mouseLook.mouseSensitivity = sensitivity;
+        PlayerPrefs.SetFloat("mouseSensitivity", sliderSensitivity.value);
     }
 
     public void SetVolume()
@@ -104,7 +105,7 @@ public class MenuScript : MonoBehaviour
     private void Load()
     {
         sliderVolume.value = PlayerPrefs.GetFloat("globalVolume");
-        sliderSensivity.value = PlayerPrefs.GetFloat("mouseSensivity");
+        sliderSensitivity.value = PlayerPrefs.GetFloat("mouseSensitivity");
     }
 
     private void OnEnable()

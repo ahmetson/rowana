@@ -12,7 +12,6 @@ public class PickUpController : MonoBehaviour
     [HideInInspector] public GameObject holderUnderMap;
     [HideInInspector] public GameObject heldObj;
     [HideInInspector] public GameObject heldObjSub;
-    [HideInInspector] public Transform holdAreaRight;
     [HideInInspector] public Transform holdAreaLeft;
     
     [Header("Vars")]
@@ -36,6 +35,7 @@ public class PickUpController : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] public GameObject radio;
+    [SerializeField] public Transform holdAreaRight;
 
     private void Awake()
     {
@@ -48,7 +48,6 @@ public class PickUpController : MonoBehaviour
 
         holderUnderMap = GameObject.FindWithTag("HolderUnderMap");
         holdAreaLeft = GameObject.FindWithTag("HoldAreaLeft").transform;
-        holdAreaRight = radio.GetComponentInChildren<Transform>();
     }
 
     private void Update()

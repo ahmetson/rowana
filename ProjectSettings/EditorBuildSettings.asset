@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/OutSideOpenWorld.unity
     guid: c962c0d2db89ede44b3a654f1607e396
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Swamp2.unity
     guid: b53ab5b99d646df4c80e325b8933a25d
   m_configObjects: {}

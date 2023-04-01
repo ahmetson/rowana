@@ -883,8 +883,8 @@ MonoBehaviour:
   mouseLook: {fileID: 0}
   copyMode: {fileID: 0}
   sliderVolume: {fileID: 1923361977}
-  sliderSensivity: {fileID: 2040449441}
-  sensivity: 0
+  sliderSensitivity: {fileID: 2040449441}
+  sensitivity: 0
   canvas: {fileID: 367661839}
   crossHair: {fileID: 0}
 --- !u!1 &417646540

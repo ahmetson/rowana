@@ -66,7 +66,7 @@ public class CopyMode : MonoBehaviour
                     ui.SetActive(false);
                     menuScript.BackToGame();
                     menuScript.enabled = true;
-                    cameraMove.mouseSensitivity = menuScript.sensivity;
+                    cameraMove.mouseSensitivity = menuScript.sensitivity;
                 }
             }
         }
