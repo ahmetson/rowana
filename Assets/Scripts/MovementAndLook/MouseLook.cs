@@ -35,7 +35,7 @@ public class MouseLook : MonoBehaviour
     {
         Look();
         StartCoroutine(WaitForFunction());
-        Debug.Log(mouseSensitivity);
+        
     }
     private IEnumerator WaitForFunction()
     {

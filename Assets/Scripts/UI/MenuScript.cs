@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
+using Unity.VisualScripting;
 
 public class MenuScript : MonoBehaviour
 {
@@ -29,6 +29,8 @@ public class MenuScript : MonoBehaviour
         copyMode = FindObjectOfType<CopyMode>();
     }
 
+
+
     private void Start()
     {
         if (!PlayerPrefs.HasKey("globalVolume"))
@@ -43,6 +45,8 @@ public class MenuScript : MonoBehaviour
         {
             Load();
         }
+
+        mouseLook.mouseSensitivity = sensitivity;
     }
     private void Update()
     {
@@ -92,7 +96,7 @@ public class MenuScript : MonoBehaviour
     public void SetMouseSensivity()
     {
         sensitivity = sliderSensitivity.value;
-        mouseLook.mouseSensitivity = sensitivity;
+        
         PlayerPrefs.SetFloat("mouseSensitivity", sliderSensitivity.value);
     }
 

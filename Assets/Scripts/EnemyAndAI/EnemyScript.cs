@@ -25,6 +25,8 @@ public class EnemyScript : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
         victoryScript = FindObjectOfType<VictoryScript>();
+        player = GameObject.FindWithTag("Player").transform;
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
     

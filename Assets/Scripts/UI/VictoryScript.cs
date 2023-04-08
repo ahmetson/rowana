@@ -61,6 +61,6 @@ public class VictoryScript : MonoBehaviour
 
     public void LevelOneVictory(int successProgress)
     {
-
+        Debug.Log(successProgress);
     }
 }

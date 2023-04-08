@@ -23,6 +23,9 @@ TagManager:
   - HoldAreaLeft
   - HoldAreaRight
   - Radio
+  - PlatformA
+  - PlatformB
+  - PlatformC
   layers:
   - Default
   - TransparentFX

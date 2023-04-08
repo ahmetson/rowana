@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ClassLamp : MonoBehaviour 
@@ -15,9 +16,9 @@ public class ClassLamp : MonoBehaviour
 
     private void Awake()
     {
-        platformA = GameObject.FindWithTag("musicA");
-        platformB = GameObject.FindWithTag("musicB");
-        platformC = GameObject.FindWithTag("musicC");   
+        platformA = GameObject.FindWithTag("PlatformA");
+        platformB = GameObject.FindWithTag("PlatformB");
+        platformC = GameObject.FindWithTag("PlatformC");   
         
         victoryScript = FindObjectOfType<VictoryScript>();
     }
@@ -50,24 +51,53 @@ public class ClassLamp : MonoBehaviour
 
         if (platformA.transform.childCount != 0)
         {
-            String name = platformA.GetComponentInChildren<AudioSource>().clip.name;
-            if (name.Contains(".X")) { successLamps -= 1; }
-            else if (name.Contains(".XX")) { successLamps += 0; }
-            else if (name.Contains(".XXX")) { successLamps += 1; }
+            List<AudioSource> sources = new List<AudioSource>();
+            sources.AddRange(platformA.GetComponentsInChildren<AudioSource>());
+            foreach (AudioSource name in sources)
+            {
+                if (name.CompareTag("musicA"))
+                {
+                    if (name.clip.name.Contains(".negatively")) { successLamps -= 1; }
+                    else if (name.clip.name.Contains(".neutral")) { successLamps += 0; }
+                    else if (name.clip.name.Contains(".positively")) { successLamps += 1; }
+                }
+            }
         }
         if (platformB.transform.childCount != 0)
         {
-            String name = platformB.GetComponentInChildren<AudioSource>().clip.name;
-            if (name.Contains(".X")) { successLamps -= 1; }
-            else if (name.Contains(".XX")) { successLamps += 0; }
-            else if (name.Contains(".XXX")) { successLamps += 1; }
+            List<AudioSource> sources = new List<AudioSource>();
+            sources.AddRange(platformB.GetComponentsInChildren<AudioSource>());
+            foreach (AudioSource name in sources)
+            {
+                if (name.CompareTag("musicB"))
+                {
+                    if (name.clip.name.Contains(".negatively")) { successLamps -= 1; }
+                    else if (name.clip.name.Contains(".neutral")) { successLamps += 0; }
+                    else if (name.clip.name.Contains(".positively")) { successLamps += 1; }
+                }
+            }
         }
         if (platformC.transform.childCount != 0)
         {
-            String name = platformC.GetComponentInChildren<AudioSource>().clip.name;
-            if (name.Contains(".X")) { successLamps -= 1; }
-            else if (name.Contains(".XX")) { successLamps += 0; }
-            else if (name.Contains(".XXX")) { successLamps += 1; }
+            List<AudioSource> sources = new List<AudioSource>();
+            sources.AddRange(platformC.GetComponentsInChildren<AudioSource>());
+            foreach (AudioSource name in sources)
+            {
+                if (name.CompareTag("musicC"))
+                {
+                    if (name.clip.name.Contains(".negatively")) { successLamps -= 1; }
+                    else if (name.clip.name.Contains(".neutral")) { successLamps += 0; }
+                    else if (name.clip.name.Contains(".positively")) { successLamps += 1; }
+                }
+            }
+            /*
+            GameObject crystal = GameObject.FindWithTag("musicC");
+            String name = crystal.GetComponent<AudioSource>().clip.name;
+            Debug.Log(name);
+            if (name.Contains(".negatively")) { successLamps -= 1; }
+            else if (name.Contains(".neutral")) { successLamps += 0; }
+            else if (name.Contains(".positively")) { successLamps += 1; }
+            */
         }
 
         victoryScript.LevelOneVictory(successLamps);
