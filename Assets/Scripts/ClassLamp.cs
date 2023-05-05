@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class ClassLamp : MonoBehaviour 
 {
-    [Header("Level—onditions")]
+    [Header("Level —onditions")]
     private GameObject platformA;
     private GameObject platformB;
     private GameObject platformC;
