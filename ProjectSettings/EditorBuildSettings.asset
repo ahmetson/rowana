@@ -5,10 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Mixer.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/SetupYellow.unity
-    guid: 5f07e48d343951f4aa2611ec3a2e266d
+    path: Assets/Scenes/MainMenu0.unity
+    guid: 9c8f94c3005ee3344abaf538c50722b6
+  - enabled: 1
+    path: Assets/Scenes/Tutor1.unity
+    guid: 640a1605a794fb442852e0f78ce4bbae
+  - enabled: 0
+    path: Assets/Scenes/OutSideOpenWorld.unity
+    guid: c962c0d2db89ede44b3a654f1607e396
+  - enabled: 0
+    path: Assets/Scenes/Swamp2.unity
+    guid: b53ab5b99d646df4c80e325b8933a25d
   m_configObjects: {}

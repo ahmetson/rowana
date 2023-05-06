@@ -6,6 +6,26 @@ TagManager:
   tags:
   - Saved
   - Unsaved
+  - Swamp
+  - Flat
+  - Forest
+  - musicA
+  - musicB
+  - musicC
+  - JawCollider
+  - HP
+  - FireCamp
+  - Water
+  - Fog
+  - Rain
+  - Crystal
+  - HolderUnderMap
+  - HoldAreaLeft
+  - HoldAreaRight
+  - Radio
+  - PlatformA
+  - PlatformB
+  - PlatformC
   layers:
   - Default
   - TransparentFX
